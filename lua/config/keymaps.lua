@@ -37,13 +37,17 @@ map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
-map("n", "<leader>fn", "<cmd>:tabnew <cr>", { desc = "[F]ile [N]ew" })
+map("n", "<leader>fn", "<cmd>tabnew <cr>", { desc = "[F]ile [N]ew" })
 -- User interface
 map("n", "<leader>ur", "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>", { desc = "[U]ser [R]eset UI" })
 map("n", "<leader>us", "<cmd>SymbolsOutline<cr>", { desc = "[U]ser [S]ymbols outline" })
--- conceal level /  TODO: convert to toggle
+-- conceal mode /  TODO: convert to toggle
 map("n", "<leader>uc", "<cmd>set conceallevel=0<cr>", { desc = "[U]ser [c]onceal show" })
 map("n", "<leader>uC", "<cmd>set conceallevel=3<cr>", { desc = "[U]ser [c]onceal hide" })
+-- treesitter mode
+map("n", "<leader>ut", "<cmd>lua vim.treesitter.start()<cr>", { desc = "[U]ser [t]reesitter enable" })
+map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T]reesitter disable" })
+
 
 -- map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 -- map('n', "<leader>sr", require("spectre").open, { desc = "[S]earch & Replace in files (Spectre)"})
