@@ -10,10 +10,6 @@ I've aimed to streamline the installation process by creating installation
 scripts for your preferred distributions (you can even test it on Docker
 images).
 
-![dashboard](./doc/img/plug_dashboard.png)
-![neotree-symbolsoutline](./doc/img/plug_neotree_symbolsoutline.png)
-![telescope](./doc/img/plug_telescope.png) ![git](./doc/img/plug_lazygit.png)
-
 ## 🎁 Features
 
 - **DevOps-Centric:** This Neovim setup is optimized for DevOps workflows,
@@ -34,10 +30,10 @@ images).
     [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim),
     [symbols-outline](https://github.com/simrat39/symbols-outline.nvim)
   - Completion engine [cmp](https://github.com/hrsh7th/nvim-cmp)
-  - Notification [noice](./doc/plugins.md#noice)
+  - Notification [noice](https://github.com/folke/noice.nvim)
   - Find, Filter, Preview, Pick
     [telescope](https://github.com/nvim-telescope/telescope.nvim),
-    [spectre](./doc/plugins.md#spectre)
+    [spectre](https://github.com/nvim-pack/nvim-spectre)
   - Improve the default vim.ui interfaces
     [dressing](https://github.com/stevearc/dressing.nvim)
 - 🖥️ **Appearance**
@@ -46,38 +42,50 @@ images).
   - A vim-startify like [dashboard](https://github.com/nvimdev/dashboard-nvim)
   - Status line & tabline
     [bufferline](https://github.com/akinsho/bufferline.nvim),
-    [lualine](./doc/plugins.md#lualine)
+    [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - Easily create and manage predefined window layouts
-    [edgy](./doc/plugins.md#edgy)
+    [edgy](https://github.com/folke/edgy.nvim)
 - ⌨️ **IDE**
   - Key bindings that stick [which-key](https://github.com/folke/which-key.nvim)
-  - Git integration for buffers [gitsigns](./doc/plugins.md#gitsigns)
-  - Indent guides [indent_blankline](./doc/plugins.md#indent_blankline)
-  - LSP, diagnostic, linting [mason](./doc/plugins.md#mason),
-    [treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
-    [trouble](https://github.com/folke/trouble.nvim)
-  - Keymap popup [which-key](./doc/plugins.md#which-key)
+  - Git integration for buffers
+    [gitsigns](https://github.com/lewis6991/gitsigns.nvim),
+    [neogit](https://github.com/NeogitOrg/neogit)
+  - Indent guides
+    [indent_blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
+  - LSP, diagnostic, linting
+    - [mason](https://github.com/williamboman/mason.nvim),
+    - [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+    - [formatter.nvim](https://github.com/mhartington/formatter.nvim)
+    - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
+    - [trouble](https://github.com/folke/trouble.nvim)
+    - [nvim-lint](https://github.com/mfussenegger/nvim-lint),
+  - Keymap popup [which-key](https://github.com/folke/which-key.nvim)
   - Preview markdown result
-    [mardown-preview](./doc/plugins.md#markdown-preview),
+    [mardown-preview](https://github.com/iamcco/markdown-preview.nvim),
+- ⛏️ External
+  - Conventional commits
+    [commitizen](https://github.com/commitizen-tools/commitizen)
 
 ## 💬 **Language support**
 
-| Language       | Hightlght | Format | Diagnostic | completion | Plugins                                           |
-| -------------- | --------- | ------ | ---------- | ---------- | ------------------------------------------------- |
-| bash           | ✅        | ✅     | ✅         | 🔳         | shellharden, shellcheck                           |
-| deno           | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| Dockerfile     | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| go             | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| json           | ✅        | ✅     | ✅         | 🔳         | fixjson, jsonlint                                 |
-| lua            | ✅        | ✅     | ✅         | 🔳         | luacheck, selene, stylua                          |
-| markdown       | ✅        | ✅     | ✅         | 🔳         | markdownlint, marksman, deno_fmt                  |
-| nix            | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| python         | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| terraform      | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| typescript     | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| vim            | 🔳        | 🔳     | 🔳         | 🔳         | TODO                                              |
-| diagram        | ❌        | ❌     | ❌         | 🔳         | venn                                              |
-| markdown table | ❌        | ✅     | ❌         | 🔳         | [vim-table-mode](./doc/plugins.md#vim-table-mode) |
+| Language       | Hightlght | Format | Lint/Diagnostic | completion | Plugins                          |
+| -------------- | --------- | ------ | --------------- | ---------- | -------------------------------- |
+| ansible        | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| deno           | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| diagram        | ❌        | ❌     | ❌              | 🔳         | venn                             |
+| dockerfile     | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| go             | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| json           | ✅        | ✅     | ✅              | 🔳         | fixjson, jsonlint                |
+| lua            | ✅        | ✅     | ✅              | 🔳         | luacheck, selene, stylua         |
+| markdown       | ✅        | ✅     | ✅              | 🔳         | markdownlint, marksman, deno_fmt |
+| markdown table | ❌        | ✅     | ❌              | 🔳         | vim-table-mode                   |
+| nix            | ✅        | ✅     | ✅              | ✅         | nil_ls, alejandra                |
+| python         | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| shell          | ✅        | ✅     | ✅              | ✅         | shellharden, shellcheck          |
+| terraform      | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| typescript     | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| vim            | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| yaml           | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 
 ## 🎮 Try
 
@@ -126,7 +134,7 @@ nvim
 - **vide**
 
   - [ ] Define `lazy` & `event` option for all plugins
-  - [ ] Add markdown preview keybinding on <leader>mm or <leader>mp
+  - [ ] Add markdown preview keybinding on `<leader>mm` or `<leader>mp`
 
 - search plugins for :
 

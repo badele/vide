@@ -1,8 +1,4 @@
 return {
-	-- Git related plugins
-	"tpope/vim-fugitive",
-	"tpope/vim-rhubarb",
-
 	-- UI Component Library for Neovim.
 	"MunifTanjim/nui.nvim",
 	{
@@ -31,13 +27,6 @@ return {
 		"stevearc/dressing.nvim",
 		opts = {},
 	},
-
-	-- {
-	--   "simrat39/symbols-outline.nvim",
-	--   config = function()
-	--     require("symbols-outline").setup()
-	--   end
-	-- },
 
 	{
 		"simrat39/symbols-outline.nvim",

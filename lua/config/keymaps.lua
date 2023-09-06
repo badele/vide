@@ -35,6 +35,8 @@ wk.register({
 ------------------------------------------------------------------------------
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Show tt[Y] terminal", remap = true })
+map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>fn", "<cmd>tabnew <cr>", { desc = "[F]ile [N]ew" })
@@ -48,7 +50,6 @@ map("n", "<leader>uC", "<cmd>set conceallevel=3<cr>", { desc = "[U]ser [c]onceal
 map("n", "<leader>ut", "<cmd>lua vim.treesitter.start()<cr>", { desc = "[U]ser [t]reesitter enable" })
 map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T]reesitter disable" })
 
-
 -- map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 -- map('n', "<leader>sr", require("spectre").open, { desc = "[S]earch & Replace in files (Spectre)"})
 -- map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
@@ -60,6 +61,10 @@ map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T
 
 -- Telescope
 -- See `:help telescope.builtin`
+
+-- Code
+map("n", "<leader>cn", "<cmd>Neogit<cr>", { desc = "[C]ode [N]eogit" })
+map("n", "<leader>cf", "<cmd>FormatWrite<cr>", { desc = "[C]ode [F]ormat" })
 
 -- Remap for dealing with word wrap
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

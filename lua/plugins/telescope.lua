@@ -38,7 +38,7 @@ return {
 				},
 				extensions = {
 					fzf = {
-						fuzzy = true,
+						fuzzy = false, -- Search exactly word
 						override_generic_sorter = true,
 						override_file_sorter = true,
 						case_mode = "smart_case",
@@ -54,6 +54,7 @@ return {
 			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "[F]ind [B]uffers" },
 			{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "[F]ind [G]it files" },
 			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "[F]ind [F]iles" },
+			{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "[F]ind [K]eymaps" },
 			{
 				"<leader>fF",
 				"<cmd>lua require('telescope.builtin').find_files({cwd='~'})<cr>",
@@ -82,7 +83,6 @@ return {
 			},
 		},
 		dependencies = {
-			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-rg.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-lua/plenary.nvim",

@@ -4,7 +4,7 @@ return {
 		require("toggleterm").setup({
 			size = 20,
 			hide_numbers = true,
-			-- open_mapping = [[<leader>y]], -- WARN: bug if enable it in insert mode (edit text)
+			-- open_mapping = [[c-t]], -- ISSUE: if you use the  <leader>(SPACE) breaking change in insert mode
 			shade_filetypes = {},
 			shade_terminals = false,
 			shading_factor = 0.1,

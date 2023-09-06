@@ -7,6 +7,8 @@ local mason_ensure_installed = {
 	},
 	jsonls = { -- json
 	},
+	nil_ls = { -- nix
+	},
 	lua_ls = { -- bash
 		Lua = {
 			workspace = { checkThirdParty = false },

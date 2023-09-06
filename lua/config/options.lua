@@ -8,6 +8,7 @@ vim.g.loaded_ruby_provider = 0
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
+opt.autochdir = false -- change dir from buffer
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.colorcolumn = "80" -- Show limitation columns
 opt.completeopt = "menu,menuone,noselect"
