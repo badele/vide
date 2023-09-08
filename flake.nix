@@ -17,15 +17,33 @@
     in {
       default = pkgs.mkShell {
         packages = with pkgs; [
-          pre-commit
           # git-cliff
           # cocogitto
-          nixfmt
+          # nixfmt
+
+          # video project requirements
+          pre-commit
           commitizen
           aliascommit
 
-          # neovim plugins build requirements
+          # neovim and plugins build requirements
           cargo
+          cmake
+          curl
+          neovim
+          ncurses
+          nodejs
+          unzip
+          yarn
+
+          #######################################################################
+          # Need by plugins
+          #######################################################################
+          fd
+          lazygit
+          ripgrep
+          tree-sitter
+          xclip
 
           #######################################################################
           # Bash

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+NVIMVERSION=0.9.1
+PYTHONVERSION=3.11
+DISTRIBNAME=nixos
+# Build docker image
+if [ "$#" -eq 1 ]; then
+  if [ "$1" == "docker-build" ]; then
+    docker build -t vide-$DISTRIBNAME -f docker/$DISTRIBNAME.Dockerfile .
+    exit 0
+  fi
+
+# Run docker container with DISTRIBNAME image
+  if [ "$1" == "docker-run" ]; then
+    docker run -it --rm \
+      -w /root/.config/nvim \
+      -v $PWD:/root/.config/nvim \
+      -v /tmp/local-vide-$DISTRIBNAME:/root/.local \
+      vide-$DISTRIBNAME \
+      nix develop
+    exit 0
+  fi
+fi

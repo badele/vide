@@ -108,7 +108,7 @@ git clone https://github.com/badele/vide.git ~/.config/vide
 cd ~/.config/vide
 install/$DISTRIBNAME docker-build # ~ 5 min
 install/$DISTRIBNAME docker-run
-/check.sh
+./check.sh
 nvim
 ```
 
