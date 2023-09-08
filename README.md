@@ -89,27 +89,6 @@ images).
 
 ## 🎮 Try
 
-### Docker
-
-```shell
-git clone https://github.com/badele/vide.git ~/.config/vide
-cd ~/.config/vide
-install/ubuntu build # ~ 5 min
-install/ubuntu run
-/check.sh
-nvim
-```
-
-### Distribution
-
-```shell
-git clone https://github.com/badele/vide.git ~/.config/vide
-[Optional] install/ubutu
-NVIM_APPNAME="vide" nvim
-```
-
-## ⛏️ Installation
-
 You can use this configuration with neovim >= 0.8.0
 
 If you need install some distribution dependencies use `install/<distribname>`
@@ -117,14 +96,38 @@ script
 
 Supported distributions list:
 
-- Ubuntu
-- TODO: Archlinux
-- TODO: Nixos
+- ubuntu
+- TODO: archlinux
+- nixos
+
+### Docker
 
 ```shell
+eport DISTRIBNAME=nixos
+git clone https://github.com/badele/vide.git ~/.config/vide
+cd ~/.config/vide
+install/$DISTRIBNAME docker-build # ~ 5 min
+install/$DISTRIBNAME docker-run
+/check.sh
+nvim
+```
+
+### Distribution
+
+```shell
+eport DISTRIBNAME=nixos
+git clone https://github.com/badele/vide.git ~/.config/vide
+[Optional] install/$DISTRIBNAME
+NVIM_APPNAME="vide" nvim
+```
+
+## ⛏️ Installation
+
+```shell
+eport DISTRIBNAME=nixos
 mv ~/.config/nvim ~/.config/nvim.bak-$(date +%s)
 git clone https://github.com/badele/vide.git ~/.config/nvim
-[Optional] install/archlinux
+[Optional] install/$DISTRIBNAME
 ./check.sh
 nvim
 ```
@@ -142,6 +145,8 @@ nvim
   - [ ] [vim-sops](https://github.com/jsecchiero/vim-sops/tree/main)
 
 - try
+  - | ] neorg
+  - [ ] ALE
   - [ ] vimwiki
   - [ ] [incline](https://github.com/b0o/incline.nvim)
 

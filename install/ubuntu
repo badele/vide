@@ -4,17 +4,22 @@ set -euo pipefail
 
 NVIMVERSION=0.9.1
 PYTHONVERSION=3.11
+DISTRIBNAME=ubuntu
 
 # Build docker image
 if [ "$#" -eq 1 ]; then
-  if [ "$1" == "build" ]; then
-    docker build -t vide-ubuntu -f docker/ubuntu.Dockerfile .
+  if [ "$1" == "docker-build" ]; then
+    docker build -t vide-$DISTRIBNAME -f docker/$DISTRIBNAME.Dockerfile .
     exit 0
   fi
 
-# Run docker container with ubuntu image
-  if [ "$1" == "run" ]; then
-    docker run -it --rm -v $PWD:/data:ro -v $HOME/.config/vide:/root/.config/nvim -v /tmp/.local:/root/.local vide-ubuntu
+# Run docker container with DISTRIBNAME image
+  if [ "$1" == "docker-run" ]; then
+    docker run -it --rm \
+      -w /root/.config/nvim \
+      -v $PWD:/root/.config/nvim \
+      -v /tmp/local-vide-$DISTRIBNAME:/root/.local \
+      vide-$DISTRIBNAME
     exit 0
   fi
 fi
