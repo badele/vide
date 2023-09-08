@@ -5,4 +5,4 @@ COPY check.sh check.sh
 
 RUN ./install.sh
 
-WORKDIR /data
+WORKDIR /root/.config/nvim
