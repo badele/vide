@@ -67,7 +67,7 @@ return {
 				"<cmd>lua require'telescope'.extensions.projects.projects{}<cr>",
 				desc = "[F]ind [P]roject",
 			},
-			{ "<leader>fr", "<cmd>Telescope registers<cr>", desc = "[F]ind [R]egister" },
+			-- { "<leader>fr", "<cmd>Telescope registers<cr>", desc = "[F]ind [R]egister" },
 			{ "<leader>ft", "<cmd>Telescope filetypes<cr>", desc = "[F]ind [T]ypes file" },
 
 			--     -----------------------------------------------------------------------------

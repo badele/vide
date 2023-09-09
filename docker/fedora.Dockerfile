@@ -1,15 +1,16 @@
-FROM ubuntu:23.10
+FROM fedora:37
 
 # Install nix
-RUN apt-get update -y && apt-get install -y git nix
+RUN dnf install --assumeyes git xz && curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
 
 # Cache some requirements in /nix/store
 WORKDIR /tmp
 COPY flake.nix flake.nix
 COPY flake.lock flake.lock
 RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
-RUN nix develop --extra-experimental-features "nix-command flakes"
+RUN source /etc/bashrc && nix develop --extra-experimental-features 'nix-command flakes'
 
 # Nvim start at the vide project
 WORKDIR /root/.config/nvim
-CMD nix develop
+CMD source /etc/bashrc && nix develop
+

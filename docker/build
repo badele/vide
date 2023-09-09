@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ ! "$#" -eq 1 ]; then
+	echo "Usage:"
+	echo "  $0 <action> <distribname>"
+	echo ""
+	echo "action      : build|run"
+	echo "distribname : Choose from below list :"
+	echo ""
+
+	ls docker/**.Dockerfile | sed 's/\.Dockerfile//' | sed 's/docker\///'
+fi
+
+# Build docker image
+if [ "$#" -eq 1 ]; then
+	docker build -t vide-"$1" -f docker/"$1".Dockerfile .
+fi

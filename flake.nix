@@ -3,97 +3,106 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: let
-    supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
-    forEachSupportedSystem = f:
-      nixpkgs.lib.genAttrs supportedSystems
-      (system: f {pkgs = import nixpkgs {inherit system;};});
-  in {
-    devShells = forEachSupportedSystem ({pkgs}: let
-      aliascommit = pkgs.writeShellScriptBin "commit" "cz commit";
-    in {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          # git-cliff
-          # cocogitto
-          # nixfmt
+  outputs = { self, nixpkgs, }:
+    let
+      ###########################################################################
+      # Lanuages Activation
+      ###########################################################################
+      bash_support = true;
+      json_support = true;
+      lua_support = true;
+      markdown_support = true;
+      nix_support = true;
+      python_support = true;
+      typescript_support = true;
 
-          # video project requirements
-          pre-commit
-          commitizen
-          aliascommit
+      supportedSystems =
+        [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forEachSupportedSystem = f:
+        nixpkgs.lib.genAttrs supportedSystems
+          (system: f { pkgs = import nixpkgs { inherit system; }; });
+    in
+    {
+      devShells = forEachSupportedSystem ({ pkgs }:
+        let
+          aliascommit = pkgs.writeShellScriptBin "commit" "cz commit";
 
-          # neovim and plugins build requirements
-          cargo
-          cmake
-          curl
-          neovim
-          ncurses
-          nodejs
-          unzip
-          yarn
+          ###########################################################################
+          # Lanuages support
+          ###########################################################################
+          bash_packages = with pkgs; [ shfmt shellharden shellcheck ];
 
-          #######################################################################
-          # Need by plugins
-          #######################################################################
-          fd
-          lazygit
-          ripgrep
-          tree-sitter
-          xclip
+          json_packages = with pkgs; [
+            nodePackages.fixjson
+            nodePackages.jsonlint
+          ];
 
-          #######################################################################
-          # Bash
-          #######################################################################
+          lua_packages = with pkgs; [
+            # Formater
+            stylua
+            luaformatter
 
-          # Format
-          shfmt
+            luajitPackages.luacheck
+            selene
+          ];
 
-          shellharden
-          shellcheck
-          #
-          # # deno
-          deno
-          #
-          # # json
-          nodePackages.fixjson
-          nodePackages.jsonlint
+          markdown_packages = with pkgs; [
+            marksman
+            nodePackages.markdownlint-cli
+          ];
 
-          #######################################################################
-          # Lua
-          #######################################################################
+          nix_packages = with pkgs; [
+            # Formater
+            alejandra
+            nixfmt
+            nixpkgs-fmt
+          ];
 
-          # Formater
-          stylua
-          luaformatter
+          python_packages = with pkgs; [ ];
 
-          # # lua
-          luajitPackages.luacheck
-          selene
-          #
-          # markdown
-          marksman
-          nodePackages.markdownlint-cli
+          typescript_packages = with pkgs; [ deno ];
+        in
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs;
+              [
+                # git-cliff
+                # cocogitto
+                # nixfmt
 
-          #######################################################################
-          # Nix
-          #######################################################################
+                # vide project requirements
+                pre-commit
+                commitizen
+                aliascommit
 
-          # Formater
-          alejandra
-          nixfmt
-          nixpkgs-fmt
+                # neovim and plugins build requirements
+                cargo
+                cmake
+                curl
+                git
+                ncurses
+                neovim
+                nodejs
+                unzip
+                yarn
 
-          #######################################################################
-          # Other
-          #######################################################################
-          # Formater (markdown)
-          nodePackages.prettier
-        ];
-      };
-    });
-  };
+                # Need by plugins
+                fd
+                lazygit
+                ripgrep
+                tree-sitter
+                xclip
+
+                # Misc language
+                nodePackages.prettier
+              ] ++ pkgs.lib.optionals bash_support bash_packages
+              ++ pkgs.lib.optionals json_support json_packages
+              ++ pkgs.lib.optionals lua_support lua_packages
+              ++ pkgs.lib.optionals markdown_support markdown_packages
+              ++ pkgs.lib.optionals nix_support nix_packages
+              ++ pkgs.lib.optionals python_support python_packages
+              ++ pkgs.lib.optionals typescript_support typescript_packages;
+          };
+        });
+    };
 }

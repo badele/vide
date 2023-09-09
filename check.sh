@@ -65,8 +65,8 @@ checkTools "printenv"
 
 # Lua
 header "Lua"
-checkTools "luacheck"     # nix os: luajitPackages.luacheck
-checkTools "selene"       # nix os: selene
+checkTools "luacheck" # nix os: luajitPackages.luacheck
+checkTools "selene"   # nix os: selene
 
 # Markdown
 # header "Markdown"

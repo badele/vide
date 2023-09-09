@@ -77,6 +77,7 @@ images).
 | go             | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 | json           | ✅        | ✅     | ✅              | 🔳         | fixjson, jsonlint                |
 | lua            | ✅        | ✅     | ✅              | 🔳         | luacheck, selene, stylua         |
+| makefile       | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 | markdown       | ✅        | ✅     | ✅              | 🔳         | markdownlint, marksman, deno_fmt |
 | markdown table | ❌        | ✅     | ❌              | 🔳         | vim-table-mode                   |
 | nix            | ✅        | ✅     | ✅              | ✅         | nil_ls, alejandra                |
@@ -100,34 +101,49 @@ Supported distributions list:
 - TODO: archlinux
 - nixos
 
-### Docker
+### Try on docker image
 
 ```shell
-eport DISTRIBNAME=nixos
 git clone https://github.com/badele/vide.git ~/.config/vide
 cd ~/.config/vide
-install/$DISTRIBNAME docker-build # ~ 5 min
-install/$DISTRIBNAME docker-run
+docker/build <distribname>
+docker/run <distribname>
 ./check.sh
 nvim
 ```
 
-### Distribution
+### Try on your distribution
 
+Install the distribution requirement for nix installation
+
+| Distribution   | Installation command                            |
+| -------------- | --------------------                            |
+| archlinux      | `pacman -S git nix`                             |
+| debian         | `apt-get git nix`                               |
+| fedora         | `dnf install git xz` && manual nix installation |
+| nixos          | no need installation                            |
+| ubuntu         | `apt-get git nix`                                |
+
+**Manual nix installation :** `curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes` 
+
+Preserve your current nvim configuration
 ```shell
-eport DISTRIBNAME=nixos
 git clone https://github.com/badele/vide.git ~/.config/vide
-[Optional] install/$DISTRIBNAME
+cd ~/.config/vide
+nix develop
+./check.sh
 NVIM_APPNAME="vide" nvim
 ```
 
 ## ⛏️ Installation
 
+**Warning**: That replace your current nvim configuration,
+your current configuration is backuped
 ```shell
-eport DISTRIBNAME=nixos
 mv ~/.config/nvim ~/.config/nvim.bak-$(date +%s)
 git clone https://github.com/badele/vide.git ~/.config/nvim
-[Optional] install/$DISTRIBNAME
+cd ~/.config/vide
+nix develop
 ./check.sh
 nvim
 ```
