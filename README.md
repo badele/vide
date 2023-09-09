@@ -10,6 +10,11 @@ I've aimed to streamline the installation process by creating installation
 scripts for your preferred distributions (you can even test it on Docker
 images).
 
+![dashboard](./doc/img/plug_dashboard.png)
+![neotree-symbolsoutline](./doc/img/plug_neotree_symbolsoutline.png)
+![telescope](./doc/img/plug_telescope.png) 
+![git](./doc/img/plug_lazygit.png)
+
 ## 🎁 Features
 
 - **DevOps-Centric:** This Neovim setup is optimized for DevOps workflows,
@@ -68,6 +73,8 @@ images).
 
 ## 💬 **Language support**
 
+You can enable or disable support for a language by editing the `flake.nix` file
+
 | Language       | Hightlght | Format | Lint/Diagnostic | completion | Plugins                          |
 | -------------- | --------- | ------ | --------------- | ---------- | -------------------------------- |
 | ansible        | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
@@ -97,9 +104,11 @@ script
 
 Supported distributions list:
 
-- ubuntu
-- TODO: archlinux
+- archlinux
+- debian 
+- fedora
 - nixos
+- ubuntu
 
 ### Try on docker image
 
