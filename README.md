@@ -77,7 +77,7 @@ images).
 | go             | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 | json           | ✅        | ✅     | ✅              | 🔳         | fixjson, jsonlint                |
 | lua            | ✅        | ✅     | ✅              | 🔳         | luacheck, selene, stylua         |
-| makefile       | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| makefile       | ✅        | ❌     | ✅              | ❌         | checkmake                        |
 | markdown       | ✅        | ✅     | ✅              | 🔳         | markdownlint, marksman, deno_fmt |
 | markdown table | ❌        | ✅     | ❌              | 🔳         | vim-table-mode                   |
 | nix            | ✅        | ✅     | ✅              | ✅         | nil_ls, alejandra                |
@@ -106,9 +106,8 @@ Supported distributions list:
 ```shell
 git clone https://github.com/badele/vide.git ~/.config/vide
 cd ~/.config/vide
-docker/build <distribname>
-docker/run <distribname>
-./check.sh
+make docker-run DISTRIB=<distribname>
+make check
 nvim
 ```
 
@@ -122,7 +121,7 @@ Install the distribution requirement for nix installation
 | debian         | `apt-get git nix`                               |
 | fedora         | `dnf install git xz` && manual nix installation |
 | nixos          | no need installation                            |
-| ubuntu         | `apt-get git nix`                                |
+| ubuntu         | `apt-get git nix`                               |
 
 **Manual nix installation :** `curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes` 
 
@@ -131,8 +130,8 @@ Preserve your current nvim configuration
 git clone https://github.com/badele/vide.git ~/.config/vide
 cd ~/.config/vide
 nix develop
-./check.sh
-NVIM_APPNAME="vide" nvim
+make check
+make try-nvim
 ```
 
 ## ⛏️ Installation
@@ -142,10 +141,23 @@ your current configuration is backuped
 ```shell
 mv ~/.config/nvim ~/.config/nvim.bak-$(date +%s)
 git clone https://github.com/badele/vide.git ~/.config/nvim
-cd ~/.config/vide
+cd ~/.config/nvim
 nix develop
-./check.sh
+make check
 nvim
+```
+
+## 💻
+
+Available commands
+
+```text
+check          Check requirements installation
+distrib-list   List supported distribution
+docker-build   Build <DISTRIB> docker image
+docker-run     Run <DISTRIB> docker image
+help           This help
+try-nvim       Try nvim without update your current nvim configuration
 ```
 
 ### ✅ TODO

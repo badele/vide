@@ -11,6 +11,7 @@
       bash_support = true;
       json_support = true;
       lua_support = true;
+      make_support = true;
       markdown_support = true;
       nix_support = true;
       python_support = true;
@@ -46,6 +47,10 @@
             selene
           ];
 
+          make_packages = with pkgs; [
+            checkmake
+          ];
+          
           markdown_packages = with pkgs; [
             marksman
             nodePackages.markdownlint-cli
@@ -98,6 +103,7 @@
               ] ++ pkgs.lib.optionals bash_support bash_packages
               ++ pkgs.lib.optionals json_support json_packages
               ++ pkgs.lib.optionals lua_support lua_packages
+              ++ pkgs.lib.optionals make_support make_packages
               ++ pkgs.lib.optionals markdown_support markdown_packages
               ++ pkgs.lib.optionals nix_support nix_packages
               ++ pkgs.lib.optionals python_support python_packages

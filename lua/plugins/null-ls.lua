@@ -8,7 +8,7 @@ return {
 		local formatting = n.builtins.formatting
 		local hover = n.builtins.hover
 
-		-- List from https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.m
+		-- List from https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 		local sources = {
 			-- misc
 			actions.proselint, -- An English prose linter
@@ -25,6 +25,9 @@ return {
 			formatting.shellharden,
 			formatting.shfmt,
 			hover.printenv,
+
+			-- make
+			diagnostics.checkmake,
 
 			-- markdown
 			diagnostics.markdownlint,
