@@ -3,18 +3,20 @@ local mason_ensure_installed = {
 	},
 	-- marksman = { -- markdown
 	-- },
-	bashls = { -- bash
-	},
-	jsonls = { -- json
-	},
-	nil_ls = { -- nix
-	},
-	lua_ls = { -- bash
-		Lua = {
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
-		},
-	},
+	-- bashls = { -- bash
+	-- },
+	-- jsonls = { -- json
+	-- },
+	-- nil_ls = { -- nix
+	-- },
+	-- lua_ls = { -- lua
+	-- 	Lua = {
+	-- 		workspace = { checkThirdParty = false },
+	-- 		telemetry = { enable = false },
+	-- 	},
+	-- },
+	-- ruff_lsp = { -- python
+	-- },
 }
 
 local on_attach = function(_, bufnr)

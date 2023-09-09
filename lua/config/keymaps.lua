@@ -40,7 +40,10 @@ map({ "n", "i" }, "<M-q>", "<cmd>bdelete<cr>", { desc = "Close buffer", remap = 
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+
+-- Files
 map("n", "<leader>fn", "<cmd>tabnew <cr>", { desc = "[F]ile [N]ew" })
+map("n", "<leader>fr", "<cmd>Neotree reveal<cr>", { desc = "[F]ile [R]eveal" })
 -- User interface
 map("n", "<leader>ur", "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>", { desc = "[U]ser [R]eset UI" })
 map("n", "<leader>us", "<cmd>SymbolsOutline<cr>", { desc = "[U]ser [S]ymbols outline" })
@@ -65,7 +68,7 @@ map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T
 
 -- Code
 map("n", "<leader>cn", "<cmd>Neogit<cr>", { desc = "[C]ode [N]eogit" })
-map("n", "<leader>cf", "<cmd>FormatWrite<cr>", { desc = "[C]ode [F]ormat" })
+map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", { desc = "[C]ode [F]ormat" })
 
 -- Remap for dealing with word wrap
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
