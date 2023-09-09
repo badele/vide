@@ -8,6 +8,7 @@ end
 local wk = require("which-key")
 wk.register({
 	c = { name = "[C]ode" },
+	cd = { name = "[D]iagnostics" },
 	f = { name = "[F]Find/[F]ile" },
 	g = { name = "[G]o" },
 	m = { name = "[M]isc" },
@@ -37,6 +38,7 @@ map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Show tt[Y] terminal", remap = true })
 map({ "n", "i" }, "<M-q>", "<cmd>bdelete<cr>", { desc = "Close buffer", remap = true })
+map({ "n", "i" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
@@ -67,8 +69,7 @@ map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T
 -- See `:help telescope.builtin`
 
 -- Code
-map("n", "<leader>cn", "<cmd>Neogit<cr>", { desc = "[C]ode [N]eogit" })
-map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", { desc = "[C]ode [F]ormat" })
+map("n", "<leader>cg", "<cmd>Neogit<cr>", { desc = "[C]ode neo[G]it" })
 
 -- Remap for dealing with word wrap
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

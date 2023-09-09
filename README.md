@@ -12,7 +12,7 @@ images).
 
 ![dashboard](./doc/img/plug_dashboard.png)
 ![neotree-symbolsoutline](./doc/img/plug_neotree_symbolsoutline.png)
-![telescope](./doc/img/plug_telescope.png) 
+![telescope](./doc/img/plug_telescope.png)
 ![git](./doc/img/plug_lazygit.png)
 
 ## 🎁 Features
@@ -50,7 +50,7 @@ images).
     [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - Easily create and manage predefined window layouts
     [edgy](https://github.com/folke/edgy.nvim)
-- ⌨️ **IDE**
+- 🪟 **IDE**
   - Key bindings that stick [which-key](https://github.com/folke/which-key.nvim)
   - Git integration for buffers
     [gitsigns](https://github.com/lewis6991/gitsigns.nvim),
@@ -95,6 +95,20 @@ You can enable or disable support for a language by editing the `flake.nix` file
 | vim            | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 | yaml           | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 
+## ⌨️ keybinding
+
+Main keybinding with `<leader>` key :
+| Key   | Category  |
+| ----- | --------  |
+| **c** | Code      |
+| **f** | Find/File |
+| **g** | Goto      |
+| **m** | Misc      |
+| **s** | Search    |
+| **t** | Table     |
+| **u** | User      |
+| **!** | Terminal  |
+
 ## 🎮 Try
 
 You can use this configuration with neovim >= 0.8.0
@@ -105,7 +119,7 @@ script
 Supported distributions list:
 
 - archlinux
-- debian 
+- debian
 - fedora
 - nixos
 - ubuntu
@@ -132,7 +146,8 @@ Install the distribution requirement for nix installation
 | nixos          | no need installation                            |
 | ubuntu         | `apt-get git nix`                               |
 
-**Manual nix installation :** `curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes` 
+**Manual nix installation :** 
+`curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes` 
 
 Preserve your current nvim configuration
 ```shell

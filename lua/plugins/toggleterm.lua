@@ -35,7 +35,7 @@ return {
 		end
 
 		-- lazygit
-		vim.api.nvim_set_keymap("n", "<leader>cg", "<cmd>lua _lazygit()<CR>", { noremap = true, silent = true })
+		-- vim.api.nvim_set_keymap("n", "<leader>cg", "<cmd>lua _lazygit()<CR>", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "<leader>!g", "<cmd>lua _lazygit()<CR>", { noremap = true, silent = true })
 
 		-- lazydocker

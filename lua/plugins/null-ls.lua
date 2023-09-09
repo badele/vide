@@ -62,7 +62,6 @@ return {
 			formatting.autoflake,
 			formatting.autopep8,
 			formatting.black,
-			formatting.blue,
 		}
 
 		n.setup({

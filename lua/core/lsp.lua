@@ -1,42 +1,30 @@
 local mason_ensure_installed = {
 	["null-ls"] = { -- null_ls
 	},
-	-- marksman = { -- markdown
-	-- },
 	-- bashls = { -- bash
-	-- },
-	-- jsonls = { -- json
-	-- },
-	-- nil_ls = { -- nix
-	-- },
-	-- lua_ls = { -- lua
-	-- 	Lua = {
-	-- 		workspace = { checkThirdParty = false },
-	-- 		telemetry = { enable = false },
-	-- 	},
-	-- },
-	-- ruff_lsp = { -- python
 	-- },
 }
 
-local on_attach = function(_, bufnr)
-	-- NOTE: Remember that lua is a real programming language, and as such it is possible
-	-- to define small helper and utility functions so you don't have to repeat yourself
-	-- many times.
-	--
-	-- In this case, we create a function that lets us more easily define mappings specific
-	-- for LSP related items. It sets the mode, buffer and description for us each time.
+local on_attach = function(client, bufnr)
+	local capabilities =  vim.print((vim.lsp.get_active_clients()[1].server_capabilities))
 	local nmap = function(keys, func, desc)
-		if desc then
-			desc = "LSP: " .. desc
-		end
-
 		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-	nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+	-- Show capabilities with :lua =vim.lsp.get_clients()[1].server_capabilities
+	if capabilities.hoverProvider then
+		nmap("<leader>ck", vim.lsp.buf.hover, "Code Hover")
+	end
 
+	if capabilities.documentFormattingProvider then
+		nmap("<leader>cf", vim.lsp.buf.format, "[C]ode [F]ormat" )
+	end
+
+	if capabilities.codeActionProvider then
+		nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+	end
+
+	nmap("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
 	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 	nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
@@ -45,7 +33,6 @@ local on_attach = function(_, bufnr)
 	nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 	-- See `:help K` for why this keymap
-	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 	nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
 	-- Lesser used LSP functionality
