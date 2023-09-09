@@ -47,10 +47,8 @@
             selene
           ];
 
-          make_packages = with pkgs; [
-            checkmake
-          ];
-          
+          make_packages = with pkgs; [ checkmake ];
+
           markdown_packages = with pkgs; [
             marksman
             nodePackages.markdownlint-cli
@@ -59,16 +57,44 @@
           nix_packages = with pkgs; [
             # Formater
             alejandra
+            deadnix
             nixfmt
             nixpkgs-fmt
+            statix
           ];
 
-          python_packages = with pkgs; [ ];
+          python_packages = with pkgs; [
+            ruff
+            semgrep
+            (python3.withPackages (ps:
+              with ps; [
+                autoflake
+                autopep8
+                black
+                mypy
+                pycodestyle
+                pydocstyle
+                pylint
+                vulture
+              ]))
+          ];
 
           typescript_packages = with pkgs; [ deno ];
         in
-        {
+        with pkgs;
+        with lib; {
           default = pkgs.mkShell {
+            shellHook = ''
+              export VIDE_MAKE_SUPPORT=${boolToString make_support}
+              export VIDE_BASH_SUPPORT=${boolToString bash_support}
+              export VIDE_JSON_SUPPORT=${boolToString json_support}
+              export VIDE_LUA_SUPPORT=${boolToString lua_support}
+              export VIDE_MARKDOWN_SUPPORT=${boolToString markdown_support}
+              export VIDE_NIX_SUPPORT=${boolToString nix_support}
+              export VIDE_PYTHON_SUPPORT=${boolToString python_support}
+              export VIDE_TYPESCRIPT_SUPPORT=${boolToString typescript_support}
+            '';
+
             packages = with pkgs;
               [
                 # git-cliff
@@ -100,14 +126,14 @@
 
                 # Misc language
                 nodePackages.prettier
-              ] ++ pkgs.lib.optionals bash_support bash_packages
-              ++ pkgs.lib.optionals json_support json_packages
-              ++ pkgs.lib.optionals lua_support lua_packages
-              ++ pkgs.lib.optionals make_support make_packages
-              ++ pkgs.lib.optionals markdown_support markdown_packages
-              ++ pkgs.lib.optionals nix_support nix_packages
-              ++ pkgs.lib.optionals python_support python_packages
-              ++ pkgs.lib.optionals typescript_support typescript_packages;
+              ] ++ optionals bash_support bash_packages
+              ++ optionals json_support json_packages
+              ++ optionals lua_support lua_packages
+              ++ optionals make_support make_packages
+              ++ optionals markdown_support markdown_packages
+              ++ optionals nix_support nix_packages
+              ++ optionals python_support python_packages
+              ++ optionals typescript_support typescript_packages;
           };
         });
     };

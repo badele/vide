@@ -173,7 +173,8 @@ try-nvim       Try nvim without update your current nvim configuration
   - [ ] [vim-sops](https://github.com/jsecchiero/vim-sops/tree/main)
 
 - try
-  - | ] neorg
+  - [ ] [refactoring with nulls](ThePrimeagen/refactoring)
+  - [ ] neorg
   - [ ] ALE
   - [ ] vimwiki
   - [ ] [incline](https://github.com/b0o/incline.nvim)
