@@ -1,8 +1,8 @@
 local mason_ensure_installed = {
 	["null-ls"] = { -- null_ls
 	},
-	-- bashls = { -- bash
-	-- },
+	ansiblels = {
+	},
 }
 
 local on_attach = function(client, bufnr)

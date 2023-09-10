@@ -49,11 +49,11 @@ checkTools "yarn"
 # languages support
 ###############################################################################
 #
-
-if [ "$VIDE_MAKE_SUPPORT" == "true" ]; then
-	header "Makefile support"
-	checkTools "checkmake"
+if [ "$VIDE_ANSIBLE_SUPPORT" == "true" ]; then
+	header "Ansible support"
+	checkTools "ansible-lint"
 fi
+
 
 if [ "$VIDE_BASH_SUPPORT" == "true" ]; then
 	header "Bash support"
@@ -74,6 +74,11 @@ if [ "$VIDE_LUA_SUPPORT" == "true" ]; then
 	checkTools "luacheck"
 	checkTools "selene"
 	checkTools "stylua"
+fi
+
+if [ "$VIDE_MAKE_SUPPORT" == "true" ]; then
+	header "Makefile support"
+	checkTools "checkmake"
 fi
 
 if [ "$VIDE_MARKDOWN_SUPPORT" == "true" ]; then

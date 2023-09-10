@@ -2,12 +2,14 @@
   description = "A Nix-flake-based vide project development environment";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+     # inputs.nixpkgs.url = "path:/home/badele/ghq/github.com/badele/fork-nixpkgs";
 
   outputs = { self, nixpkgs, }:
     let
       ###########################################################################
       # Lanuages Activation
       ###########################################################################
+      ansible_support = true;
       bash_support = true;
       json_support = true;
       lua_support = true;
@@ -31,6 +33,10 @@
           ###########################################################################
           # Lanuages support
           ###########################################################################
+          ansible_packages = with pkgs; [
+            ansible-lint
+          ];
+
           bash_packages = with pkgs; [ shfmt shellharden shellcheck ];
 
           json_packages = with pkgs; [
@@ -85,10 +91,11 @@
         with lib; {
           default = pkgs.mkShell {
             shellHook = ''
-              export VIDE_MAKE_SUPPORT=${boolToString make_support}
+              export VIDE_ANSIBLE_SUPPORT=${boolToString ansible_support}
               export VIDE_BASH_SUPPORT=${boolToString bash_support}
               export VIDE_JSON_SUPPORT=${boolToString json_support}
               export VIDE_LUA_SUPPORT=${boolToString lua_support}
+              export VIDE_MAKE_SUPPORT=${boolToString make_support}
               export VIDE_MARKDOWN_SUPPORT=${boolToString markdown_support}
               export VIDE_NIX_SUPPORT=${boolToString nix_support}
               export VIDE_PYTHON_SUPPORT=${boolToString python_support}
@@ -126,7 +133,8 @@
 
                 # Misc language
                 nodePackages.prettier
-              ] ++ optionals bash_support bash_packages
+              ] ++ optionals ansible_support ansible_packages
+              ++ optionals bash_support bash_packages
               ++ optionals json_support json_packages
               ++ optionals lua_support lua_packages
               ++ optionals make_support make_packages

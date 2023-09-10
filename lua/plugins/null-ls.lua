@@ -19,6 +19,9 @@ return {
 			completion.tags, -- Tags completion source.
 			completion.vsnip, -- Snippets managed by vim-vsnip. TODO: configure, 
 
+			-- Ansible
+			diagnostics.ansiblelint,
+
 			-- shell/bash
 			actions.shellcheck,
 			diagnostics.shellcheck,

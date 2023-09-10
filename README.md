@@ -75,25 +75,25 @@ images).
 
 You can enable or disable support for a language by editing the `flake.nix` file
 
-| Language       | Hightlght | Format | Lint/Diagnostic | completion | Plugins                          |
-| -------------- | --------- | ------ | --------------- | ---------- | -------------------------------- |
-| ansible        | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| deno           | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| diagram        | ❌        | ❌     | ❌              | 🔳         | venn                             |
-| dockerfile     | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| go             | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| json           | ✅        | ✅     | ✅              | 🔳         | fixjson, jsonlint                |
-| lua            | ✅        | ✅     | ✅              | 🔳         | luacheck, selene, stylua         |
-| makefile       | ✅        | ❌     | ✅              | ❌         | checkmake                        |
-| markdown       | ✅        | ✅     | ✅              | 🔳         | markdownlint, marksman, deno_fmt |
-| markdown table | ❌        | ✅     | ❌              | 🔳         | vim-table-mode                   |
-| nix            | ✅        | ✅     | ✅              | ✅         | nil_ls, alejandra                |
-| python         | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| shell          | ✅        | ✅     | ✅              | ✅         | shellharden, shellcheck          |
-| terraform      | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| typescript     | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| vim            | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| yaml           | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| Language       | LSP | Hightlght | Format | Lint/Diagnostic | completion | Plugins                          |
+| -------------- | --- | --------- | ------ | --------------- | ---------- | -------------------------------- |
+| ansible        | ✅  | ✅        | ❌     | ✅              | ❌         | ansiblels, ansible-lint(BUGGED)  |
+| deno           | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| diagram        | 🔳  | ❌        | ❌     | ❌              | 🔳         | venn                             |
+| dockerfile     | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| go             | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| json           | ✅  | ✅        | ✅     | ✅              | 🔳         | fixjson, jsonlint                |
+| lua            | ✅  | ✅        | ✅     | ✅              | 🔳         | luacheck, selene, stylua         |
+| makefile       | 🔳  | ✅        | ❌     | ✅              | ❌         | checkmake                        |
+| markdown       | 🔳  | ✅        | ✅     | ✅              | 🔳         | markdownlint, marksman, deno_fmt |
+| markdown table | 🔳  | ❌        | ✅     | ❌              | 🔳         | vim-table-mode                   |
+| nix            | 🔳  | ✅        | ✅     | ✅              | ✅         | nil_ls, alejandra                |
+| python         | ✅  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| shell          | ✅  | ✅        | ✅     | ✅              | ✅         | shellharden, shellcheck          |
+| terraform      | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| typescript     | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| vim            | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| yaml           | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 
 ## ⌨️ keybinding
 
