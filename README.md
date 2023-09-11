@@ -77,10 +77,11 @@ You can enable or disable support for a language by editing the `flake.nix` file
 
 | Language       | LSP | Hightlght | Format | Lint/Diagnostic | completion | Plugins                          |
 | -------------- | --- | --------- | ------ | --------------- | ---------- | -------------------------------- |
-| ansible        | ✅  | ✅        | ❌     | ✅              | ❌         | ansiblels, ansible-lint(BUGGED)  |
+| ansible        | ✅  | ✅        | ❌     | ✅              | ❌         | ansiblels, ansible-lint          |
 | deno           | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 | diagram        | 🔳  | ❌        | ❌     | ❌              | 🔳         | venn                             |
 | dockerfile     | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+| docker-compose | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 | go             | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
 | json           | ✅  | ✅        | ✅     | ✅              | 🔳         | fixjson, jsonlint                |
 | lua            | ✅  | ✅        | ✅     | ✅              | 🔳         | luacheck, selene, stylua         |
@@ -136,7 +137,9 @@ nvim
 
 ### Try on your distribution
 
-Install the distribution requirement for nix installation
+Before installing vide in your distribution, you must install & configure nix.
+
+#### 1) Select nix installation from your distribution
 
 | Distribution   | Installation command                            |
 | -------------- | --------------------                            |
@@ -148,6 +151,12 @@ Install the distribution requirement for nix installation
 
 **Manual nix installation :** 
 `curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes` 
+
+#### 2) Configure nix
+
+```shell
+echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+```
 
 Preserve your current nvim configuration
 ```shell

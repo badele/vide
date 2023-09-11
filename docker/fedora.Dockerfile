@@ -8,7 +8,7 @@ WORKDIR /tmp
 COPY flake.nix flake.nix
 COPY flake.lock flake.lock
 RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
-RUN source /etc/bashrc && nix develop --extra-experimental-features 'nix-command flakes'
+RUN source /etc/bashrc && nix develop
 
 # Nvim start at the vide project
 WORKDIR /root/.config/nvim
