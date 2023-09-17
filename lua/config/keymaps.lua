@@ -12,6 +12,7 @@ wk.register({
 	f = { name = "[F]Find/[F]ile" },
 	g = { name = "[G]o" },
 	m = { name = "[M]isc" },
+	-- mt = { name = "[T]ranslate" },
 	s = { name = "[S]earch" },
 	t = { name = "[T]able" },
 	u = { name = "[U]ser" },
@@ -34,10 +35,17 @@ wk.register({
 ------------------------------------------------------------------------------
 -- Misc
 ------------------------------------------------------------------------------
-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Show tt[Y] terminal", remap = true })
 map({ "n" }, "<M-q>", "<cmd>bdelete<cr>", { desc = "Close buffer", remap = true })
-map({ "n" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true })
+
+-- Misc => Markdown
+map({ "n" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true})
+
+-- Misc => Translate
+local pantran = require('pantran')
+map({ "n" }, "<leader>mt", "<cmd>Pantran<cr>", { desc = "[T]ranslate", remap = true })
+map({ "x" }, "<leader>mt", pantran.motion_translate, { desc = "[T]ranslate", remap = true, expr=true })
+
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })

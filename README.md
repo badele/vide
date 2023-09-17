@@ -1,3 +1,4 @@
+
 <p align="center">
   <img src="./doc/img/vide_logo.png"/>
 </p>
@@ -10,6 +11,22 @@ I've aimed to streamline the installation process by creating installation
 scripts for your preferred distributions (you can even test it on Docker
 images).
 
+<!--toc:start-->
+- [🎁 Features](#🎁-features)
+- [🛒 Plugins](#🛒-plugins)
+- [💬 **Language support**](#💬-language-support)
+- [⌨️ keybinding](#️-keybinding)
+- [🎮 Try](#🎮-try)
+  - [Try on docker image](#try-on-docker-image)
+  - [Try on your distribution](#try-on-your-distribution)
+    - [1) Select nix installation from your distribution](#1-select-nix-installation-from-your-distribution)
+    - [2) Configure nix](#2-configure-nix)
+- [⛏️ Installation](#️-installation)
+- [💻](#💻)
+  - [✅ TODO](#todo)
+- [Credits](#credits)
+<!--toc:end-->
+
 ![dashboard](./doc/img/plug_dashboard.png)
 ![neotree-symbolsoutline](./doc/img/plug_neotree_symbolsoutline.png)
 ![telescope](./doc/img/plug_telescope.png)
@@ -21,7 +38,7 @@ images).
   enhancing your efficiency in tasks related to infrastructure, automation, and
   more.
 - **Developer-Friendly:** Even if you're a developer working with various
-  programming languages such as Bash, Go, JSON, Nix, Python, Terraform,
+  programming languages such as Bash, Deno, Go, JSON, Nix, Python, Terraform,
   TypeScript, etc., this configuration has you covered.
 
 ## 🛒 Plugins
@@ -58,11 +75,12 @@ images).
   - Indent guides
     [indent_blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
   - LSP, diagnostic, linting
+    - [lspconfig](https://github.com/neovim/nvim-lspconfig),
     - [mason](https://github.com/williamboman/mason.nvim),
     - [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
-    - [formatter.nvim](https://github.com/mhartington/formatter.nvim)
     - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
     - [trouble](https://github.com/folke/trouble.nvim)
+    - [formatter.nvim](https://github.com/mhartington/formatter.nvim)
     - [nvim-lint](https://github.com/mfussenegger/nvim-lint),
   - Keymap popup [which-key](https://github.com/folke/which-key.nvim)
   - Preview markdown result
@@ -75,26 +93,32 @@ images).
 
 You can enable or disable support for a language by editing the `flake.nix` file
 
-| Language       | LSP | Hightlght | Format | Lint/Diagnostic | completion | Plugins                          |
-| -------------- | --- | --------- | ------ | --------------- | ---------- | -------------------------------- |
-| ansible        | ✅  | ✅        | ❌     | ✅              | ❌         | ansiblels, ansible-lint          |
-| deno           | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| diagram        | 🔳  | ❌        | ❌     | ❌              | 🔳         | venn                             |
-| dockerfile     | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| docker-compose | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| go             | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| json           | ✅  | ✅        | ✅     | ✅              | 🔳         | fixjson, jsonlint                |
-| lua            | ✅  | ✅        | ✅     | ✅              | 🔳         | luacheck, selene, stylua         |
-| makefile       | 🔳  | ✅        | ❌     | ✅              | ❌         | checkmake                        |
-| markdown       | 🔳  | ✅        | ✅     | ✅              | 🔳         | markdownlint, marksman, deno_fmt |
-| markdown table | 🔳  | ❌        | ✅     | ❌              | 🔳         | vim-table-mode                   |
-| nix            | 🔳  | ✅        | ✅     | ✅              | ✅         | nil_ls, alejandra                |
-| python         | ✅  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| shell          | ✅  | ✅        | ✅     | ✅              | ✅         | shellharden, shellcheck          |
-| terraform      | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| typescript     | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| vim            | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
-| yaml           | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | TODO                             |
+**Legend :** `LSP-Language Server Protocol / HL-Highlight / FO-Format / CA-Code Action`
+
+| Language                | LSP | HL        | FO     | Lint/Diagnostic | completion | CA | Plugins                          |
+| --------------          | --- | --------- | ------ | --------------- | ---------- | -- | -------------------------------- |
+| **Fully supported**     |     |           |        |                 |            |    |                                  |
+| deno                    | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (denols)               |
+| lua                     | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (lua_ls)               |
+| nix                     | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (nixd, nil_ls, rnix    |
+| typescript              | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (denols)               |
+| **Partially supported** |     |           |        |                 |            |    |                                  |
+| ansible                 | ✅  | ✅        | ❌     | ✅              | ❌         | 🔳 | ansiblels, ansible-lint          |
+| diagram                 | 🔳  | ❌        | ❌     | ❌              | 🔳         | 🔳 | venn                             |
+| dockerfile              | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+| docker-compose          | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+| go                      | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+| json                    | ✅  | ✅        | ✅     | ✅              | 🔳         | 🔳 | fixjson, jsonlint                |
+| lua                     | ✅  | ✅        | ✅     | ✅              | 🔳         | 🔳 | luacheck, selene, stylua         |
+| makefile                | 🔳  | ✅        | ❌     | ✅              | ❌         | 🔳 | checkmake                        |
+| markdown                | ✅  | ✅        | ❌     | ✅              | ✅         | ✅ | lspconfig (marksman)             |
+| markdown table          | 🔳  | ❌        | ✅     | ❌              | 🔳         | 🔳 | vim-table-mode                   |
+| python                  | ✅  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+| shell                   | ✅  | ✅        | ✅     | ✅              | ✅         | 🔳 | shellharden, shellcheck          |
+| terraform               | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+| vim                     | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+| yaml                    | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+
 
 ## ⌨️ keybinding
 

@@ -5,68 +5,82 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local luasnipVS = require("luasnip.loaders.from_vscode")
 local lspkind = require("lspkind")
 
-require("luasnip.loaders.from_vscode").lazy_load()
+luasnipVS.lazy_load()
 luasnip.config.setup({})
 
 cmp.setup({
+	-- WARN: not modify the order
 	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+		{ name = "treesitter" },
+		{ name = "path" },
+
+		{ name = 'vsnip' },   -- For vsnip users.
+		{ name = 'luasnip' }, -- For luasnip users.
+		{ name = 'ultisnips' }, -- For ultisnips users.
+		{ name = 'snippy' },  -- For snippy users.
+
 		{ name = "buffer" },
 		{ name = "calc" },
 		{ name = "cmp_tabnine" },
 		{ name = "emoji" },
-		{ name = "luasnip" },
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
-		{ name = "path" },
-		{ name = "treesitter" },
+
+	},
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+			-- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+		end,
 	},
 	formatting = {
 		fields = { "abbr", "menu", "kind" },
 		max_width = 0,
 		kind_icons = ideconfig.icons.kind,
 		source_names = {
-			nvim_lsp = "(LSP)",
-			emoji = "(Emoji)",
-			path = "(Path)",
-			calc = "(Calc)",
-			cmp_tabnine = "(Tabnine)",
-			vsnip = "(Snippet)",
-			luasnip = "(Snippet)",
-			buffer = "(Buffer)",
-			tmux = "(TMUX)",
-			copilot = "(Copilot)",
-			treesitter = "(TreeSitter)",
+			buffer = "[Buffer]",
+			calc = "[Calc]",
+			cmp_tabnine = "[Tabnine]",
+			emoji = "[Emoji]",
+			luasnip = "[Snippet]",
+			nvim_lsp = "[LSP]",
+			path = "[Path]",
+			snippy = "[Snippy]",
+			tmux = "[TMUX]",
+			treesitter = "[TreeSitter]",
+			ultisnips = "[Ultisnips]",
+			vsnip = "[Snippet]",
 		},
 		format = lspkind.cmp_format({
-			mode = "default", -- show only symbol annotations
-			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			mode = "default",   -- show only symbol annotations
+			maxwidth = 50,      -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 			ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-			symbol_map = { Copilot = "" },
 			before = function(entry, item)
 				item.menu = ({
 					buffer = "[Buffer]",
+					calc = "[Calc]",
+					cmp_tabnine = "[Tabnine]",
+					emoji = "[Emoji]",
 					luasnip = "[Snip]",
 					nvim_lsp = "[LSP]",
 					nvim_lua = "[API]",
 					path = "[Path]",
 					rg = "[RG]",
-					copilot = "[Copilot]",
-
-					emoji = "(Emoji)",
-					calc = "(Calc)",
-					cmp_tabnine = "(Tabnine)",
-					vsnip = "(Snippet)",
-					tmux = "(TMUX)",
-					treesitter = "(TreeSitter)",
+					treesitter = "[TreeSitter]",
+					vsnip = "[Snippet]",
 				})[entry.source.name]
 				return item
 			end,
 		}),
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end,
+		-- expand = function(args)
+		-- 	luasnip.lsp_expand(args.body)
+		-- end,
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-n>"] = cmp.mapping.select_next_item(),

@@ -308,6 +308,7 @@ gg=G                   - Indent/format code
 :LspInfo                             - Show the LSP confirmation
 :LspLog                              - Show LSP log
 :NullLsInfo                          - NullLs info
+vim.lsp.set_log_level("debug")       - Enable LSP debug
 :h key-notation                      - Show key notations
 
 debug in lua script

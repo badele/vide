@@ -2,15 +2,16 @@
   description = "A Nix-flake-based vide project development environment";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-     # inputs.nixpkgs.url = "path:/home/badele/ghq/github.com/badele/fork-nixpkgs";
+  # inputs.nixpkgs.url = "path:/home/badele/ghq/github.com/badele/fork-nixpkgs";
 
-  outputs = { self, nixpkgs, }:
+  outputs = { self, nixpkgs }:
     let
       ###########################################################################
       # Lanuages Activation
       ###########################################################################
       ansible_support = true;
       bash_support = true;
+      deno_support = true;
       json_support = true;
       lua_support = true;
       make_support = true;
@@ -39,12 +40,17 @@
 
           bash_packages = with pkgs; [ shfmt shellharden shellcheck ];
 
+          deno_packages = with pkgs; [ deno ];
+
           json_packages = with pkgs; [
             nodePackages.fixjson
             nodePackages.jsonlint
           ];
 
           lua_packages = with pkgs; [
+            # LSP
+            lua-language-server
+
             # Formater
             stylua
             luaformatter
@@ -64,8 +70,11 @@
             # Formater
             alejandra
             deadnix
+            nixd
+            nil
             nixfmt
             nixpkgs-fmt
+            rnix-lsp
             statix
           ];
 
@@ -91,8 +100,9 @@
         with lib; {
           default = pkgs.mkShell {
             shellHook = ''
-              export VIDE_ANSIBLE_SUPPORT=${boolToString ansible_support}
+                export VIDE_ANSIBLE_SUPPORT=${boolToString ansible_support}
               export VIDE_BASH_SUPPORT=${boolToString bash_support}
+              export VIDE_DENO_SUPPORT=${boolToString deno_support}
               export VIDE_JSON_SUPPORT=${boolToString json_support}
               export VIDE_LUA_SUPPORT=${boolToString lua_support}
               export VIDE_MAKE_SUPPORT=${boolToString make_support}
@@ -135,6 +145,7 @@
                 nodePackages.prettier
               ] ++ optionals ansible_support ansible_packages
               ++ optionals bash_support bash_packages
+              ++ optionals deno_support deno_packages
               ++ optionals json_support json_packages
               ++ optionals lua_support lua_packages
               ++ optionals make_support make_packages
