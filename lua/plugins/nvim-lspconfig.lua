@@ -1,7 +1,3 @@
-local map = function(modes, keys, func, desc, opts)
-  vim.keymap.set(modes, keys, func, { buffer = opts.buffer, desc = desc })
-end
-
 return {
   "neovim/nvim-lspconfig",
   lazy = false,
@@ -14,6 +10,9 @@ return {
   config = function()
     -- Setup language servers.
     local lspconfig = require('lspconfig')
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+    lspconfig.bashls.setup {}
 
     -- Nix
     lspconfig.nixd.setup {}
@@ -42,8 +41,25 @@ return {
       }
     }
 
+    -- EFM engine language server
+    lspconfig.efm.setup {
+      init_options = { documentFormatting = true },
+      -- cmd = { "efm-langserver", "-loglevel", "5", "-logfile", "/tmp/efm.log", "-c",
+      cmd = { "efm-langserver", "-c",
+        vim.loop.cwd() .. "/.efm-langserver.yaml" },
+      filetypes = { 'json', 'yaml' }
+    }
+
+    -- JSON
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    require 'lspconfig'.jsonls.setup {
+      capabilities = capabilities,
+      cmd = { "vscode-json-languageserver", "--stdio" }
+    }
+
     -- Lua
     lspconfig.lua_ls.setup {
+
       on_init = function(client)
         local path = client.workspace_folders[1].name
         if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
@@ -73,65 +89,16 @@ return {
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-      callback = function(ev)
-        local capabilities = vim.lsp.get_active_clients()[1].server_capabilities
-        -- vim.print(capabilities)
-
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf }
-
-        -- Available capabilities provider
-        -- codeActionProvider
-        -- completionProvider
-        -- definitionProvider
-        -- documentSymbolProvider
-        -- hoverProvider
-        -- referencesProvider
-        -- renameProvider
-        -- semanticTokensProvider
-        -- workspaceSymbolProvider
-
-        if capabilities.hoverProvider then
-          -- map({ "n", "i" }, "<C-k>", vim.lsp.buf.hover, "Code Hover", opts)
-          map({ "n", "i" }, "<leader>ch", vim.lsp.buf.hover, "[C]ode [H]over", opts)
-        end
-
-        if capabilities.documentFormattingProvider then
-          map({ "n", "i" }, "<leader>cf", function()
-            vim.lsp.buf.format { async = true }
-          end, "[C]ode [F]ormat", opts)
-        end
-
-        if capabilities.codeActionProvider then
-          map({ "n", "i" }, "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", opts)
-        end
-
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wl', function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-      end,
+      callback = require('core.lsp_on_attach')
     }
     )
   end,

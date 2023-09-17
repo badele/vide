@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="./doc/img/vide_logo.png"/>
 </p>
@@ -12,9 +11,12 @@ scripts for your preferred distributions (you can even test it on Docker
 images).
 
 <!--toc:start-->
+
 - [🎁 Features](#🎁-features)
 - [🛒 Plugins](#🛒-plugins)
 - [💬 **Language support**](#💬-language-support)
+  - [🏆 Fully supported](#🏆-fully-supported)
+  - [🌓 Partily supported](#🌓-partily-supported)
 - [⌨️ keybinding](#️-keybinding)
 - [🎮 Try](#🎮-try)
   - [Try on docker image](#try-on-docker-image)
@@ -29,8 +31,7 @@ images).
 
 ![dashboard](./doc/img/plug_dashboard.png)
 ![neotree-symbolsoutline](./doc/img/plug_neotree_symbolsoutline.png)
-![telescope](./doc/img/plug_telescope.png)
-![git](./doc/img/plug_lazygit.png)
+![telescope](./doc/img/plug_telescope.png) ![git](./doc/img/plug_lazygit.png)
 
 ## 🎁 Features
 
@@ -91,40 +92,49 @@ images).
 
 ## 💬 **Language support**
 
-You can enable or disable support for a language by editing the `flake.nix` file
+You can enable or disable support for a language by editing the `flake.nix`
+file. The below table show the languages fully supporter (LSP, highlighting,
+format, lint/diagnostic, completion, action).
 
-**Legend :** `LSP-Language Server Protocol / HL-Highlight / FO-Format / CA-Code Action`
+### 🏆 Fully supported
 
-| Language                | LSP | HL        | FO     | Lint/Diagnostic | completion | CA | Plugins                          |
-| --------------          | --- | --------- | ------ | --------------- | ---------- | -- | -------------------------------- |
-| **Fully supported**     |     |           |        |                 |            |    |                                  |
-| deno                    | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (denols)               |
-| lua                     | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (lua_ls)               |
-| nix                     | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (nixd, nil_ls, rnix    |
-| typescript              | ✅  | ✅        | ✅     | ✅              | ✅         | ✅ | lspconfig (denols)               |
-| **Partially supported** |     |           |        |                 |            |    |                                  |
-| ansible                 | ✅  | ✅        | ❌     | ✅              | ❌         | 🔳 | ansiblels, ansible-lint          |
-| diagram                 | 🔳  | ❌        | ❌     | ❌              | 🔳         | 🔳 | venn                             |
-| dockerfile              | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
-| docker-compose          | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
-| go                      | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
-| json                    | ✅  | ✅        | ✅     | ✅              | 🔳         | 🔳 | fixjson, jsonlint                |
-| lua                     | ✅  | ✅        | ✅     | ✅              | 🔳         | 🔳 | luacheck, selene, stylua         |
-| makefile                | 🔳  | ✅        | ❌     | ✅              | ❌         | 🔳 | checkmake                        |
-| markdown                | ✅  | ✅        | ❌     | ✅              | ✅         | ✅ | lspconfig (marksman)             |
-| markdown table          | 🔳  | ❌        | ✅     | ❌              | 🔳         | 🔳 | vim-table-mode                   |
-| python                  | ✅  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
-| shell                   | ✅  | ✅        | ✅     | ✅              | ✅         | 🔳 | shellharden, shellcheck          |
-| terraform               | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
-| vim                     | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
-| yaml                    | 🔳  | 🔳        | 🔳     | 🔳              | 🔳         | 🔳 | TODO                             |
+| Language   | LSP | HL  | FO  | Lint/Diagnostic | completion | CA  | Plugins                            |
+| ---------- | --- | --- | --- | --------------- | ---------- | --- | ---------------------------------- |
+| deno       | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (denols)                 |
+| lua        | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (lua_ls)                 |
+| markdown   | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (marksman),efm(prettier) |
+| nix        | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (nixd, nil_ls, rnix      |
+| typescript | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (denols)                 |
 
+
+### 🌓 Partily supported
+
+| Language       | LSP | HL  | FO  | Lint/Diagnostic | completion | CA  | Plugins                         |
+| -------------- | --- | --- | --- | --------------- | ---------- | --- | ------------------------        |
+| ansible        | ✅  | ✅  | ❌  | ✅              | ❌         | 🔳  | ansiblels, ansible-lint         |
+| diagram        | 🔳  | ❌  | ❌  | ❌              | 🔳         | 🔳  | venn                            |
+| dockerfile     | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
+| docker-compose | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
+| go             | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
+| json           | ✅  | ✅  | ✅  | ✅              | 🔳         | 🔳  | lspconfig(jsonls), efm(fixjson) |
+| lua            | ✅  | ✅  | ✅  | ✅              | 🔳         | 🔳  | luacheck, selene, stylua        |
+| makefile       | 🔳  | ✅  | ❌  | ✅              | ❌         | 🔳  | checkmake                       |
+| markdown table | 🔳  | ❌  | ✅  | ❌              | 🔳         | 🔳  | vim-table-mode                  |
+| python         | ✅  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
+| shell          | ✅  | ✅  | ❌  | ✅              | ✅         | 🔳  | lspconfig(bashls)               |
+| terraform      | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
+| vim            | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
+| yaml           | ✅  | ✅  | ❌  | ✅              | ❌         | ❌  | efm(yamlint,prettier)           |
+
+**Legend :**
+`LSP-Language Server Protocol / HL-Highlight / FO-Format / CA-Code Action`
 
 ## ⌨️ keybinding
 
 Main keybinding with `<leader>` key :
+
 | Key   | Category  |
-| ----- | --------  |
+| ----- | --------- |
 | **c** | Code      |
 | **f** | Find/File |
 | **g** | Goto      |
@@ -165,16 +175,16 @@ Before installing vide in your distribution, you must install & configure nix.
 
 #### 1) Select nix installation from your distribution
 
-| Distribution   | Installation command                            |
-| -------------- | --------------------                            |
-| archlinux      | `pacman -S git nix`                             |
-| debian         | `apt-get git nix`                               |
-| fedora         | `dnf install git xz` && manual nix installation |
-| nixos          | no need installation                            |
-| ubuntu         | `apt-get git nix`                               |
+| Distribution | Installation command                            |
+| ------------ | ----------------------------------------------- |
+| archlinux    | `pacman -S git nix`                             |
+| debian       | `apt-get git nix`                               |
+| fedora       | `dnf install git xz` && manual nix installation |
+| nixos        | no need installation                            |
+| ubuntu       | `apt-get git nix`                               |
 
-**Manual nix installation :** 
-`curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes` 
+**Manual nix installation :**
+`curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes`
 
 #### 2) Configure nix
 
@@ -183,6 +193,7 @@ echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 ```
 
 Preserve your current nvim configuration
+
 ```shell
 git clone https://github.com/badele/vide.git ~/.config/vide
 cd ~/.config/vide
@@ -193,8 +204,9 @@ make try-nvim
 
 ## ⛏️ Installation
 
-**Warning**: That replace your current nvim configuration,
-your current configuration is backuped
+**Warning**: That replace your current nvim configuration, your current
+configuration is backuped
+
 ```shell
 mv ~/.config/nvim ~/.config/nvim.bak-$(date +%s)
 git clone https://github.com/badele/vide.git ~/.config/nvim

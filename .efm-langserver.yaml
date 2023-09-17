@@ -1,0 +1,60 @@
+---
+version: 2
+root-markers:
+  - .bzr/
+  - .git
+  - .git/
+  - .hg/
+  - .svn/
+  - CVS/
+  - RCS/
+  - SCCS/
+  - _darcs/
+lint-debounce: 1s
+
+commands:
+  - title: Editor (nvim)
+    os: linux
+    command: nvim
+    arguments:
+      - "${FILENAME}"
+  - title: Open (system default)
+    os: linux
+    command: xdg-open
+    arguments:
+      - "${FILENAME}"
+
+tools:
+  json-jq: &json-jq
+    lint-command: "jq ."
+    lint-ignore-exit-code: true
+
+  json-fixjson: &json-fixjson
+    format-command: "fixjson"
+
+  mardown-prettier: &markdown-prettier
+    format-command: "prettier --parser markdown --prose-wrap always"
+
+  yaml-lint: &yaml-lint
+    lint-command: "yamllint -f parsable -"
+    lint-stdin: true
+    lint-ignore-exit-code: true
+    # format-command: "yamlfmt -formatter
+    #   indent=2,include_document_start=true,retain_line_breaks=true -in"
+    # format-stdin: true
+
+  yaml-prettier: &yaml-prettier
+    format-command: "prettier --parser yaml --prose-wrap always"
+    format-stdin: true
+
+languages:
+  json:
+    - !!merge <<: *json-jq
+    - !!merge <<: *json-fixjson
+
+  markdown:
+    - !!merge <<: *markdown-prettier
+
+  yaml:
+    - !!merge <<: *yaml-lint
+    # - !!merge <<: *yaml-prettier

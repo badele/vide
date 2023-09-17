@@ -19,6 +19,7 @@
       nix_support = true;
       python_support = true;
       typescript_support = true;
+      yaml_support = true;
 
       supportedSystems =
         [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
@@ -38,11 +39,16 @@
             ansible-lint
           ];
 
-          bash_packages = with pkgs; [ shfmt shellharden shellcheck ];
+          bash_packages = with pkgs; [
+            nodePackages.bash-language-server
+            shellcheck
+            # shfmt shellharden 
+          ];
 
           deno_packages = with pkgs; [ deno ];
 
           json_packages = with pkgs; [
+            nodePackages.vscode-json-languageserver
             nodePackages.fixjson
             nodePackages.jsonlint
           ];
@@ -95,7 +101,13 @@
           ];
 
           typescript_packages = with pkgs; [ deno ];
-        in
+
+          yaml_packages = with pkgs; [
+            yamlfmt
+            yamllint
+          ];
+
+in
         with pkgs;
         with lib; {
           default = pkgs.mkShell {
@@ -110,6 +122,7 @@
               export VIDE_NIX_SUPPORT=${boolToString nix_support}
               export VIDE_PYTHON_SUPPORT=${boolToString python_support}
               export VIDE_TYPESCRIPT_SUPPORT=${boolToString typescript_support}
+              export VIDE_YAML_SUPPORT=${boolToString yaml_support}
             '';
 
             packages = with pkgs;
@@ -142,6 +155,7 @@
                 xclip
 
                 # Misc language
+                efm-langserver
                 nodePackages.prettier
               ] ++ optionals ansible_support ansible_packages
               ++ optionals bash_support bash_packages
@@ -152,7 +166,8 @@
               ++ optionals markdown_support markdown_packages
               ++ optionals nix_support nix_packages
               ++ optionals python_support python_packages
-              ++ optionals typescript_support typescript_packages;
+              ++ optionals typescript_support typescript_packages
+              ++ optionals yaml_support yaml_packages;
           };
         });
     };
