@@ -8,10 +8,11 @@ end
 local wk = require("which-key")
 wk.register({
 	c = { name = "[C]ode" },
-	cd = { name = "[D]iagnostics" },
+	-- cd = { name = "[D]iagnostics" },
 	f = { name = "[F]Find/[F]ile" },
 	g = { name = "[G]o" },
 	m = { name = "[M]isc" },
+	md = { name = "[M]isc [D]ebug" },
 	-- mt = { name = "[T]ranslate" },
 	s = { name = "[S]earch" },
 	t = { name = "[T]able" },
@@ -37,9 +38,8 @@ wk.register({
 ------------------------------------------------------------------------------
 map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Show tt[Y] terminal", remap = true })
 map({ "n" }, "<M-q>", "<cmd>bdelete<cr>", { desc = "Close buffer", remap = true })
-
--- Misc => Markdown
 map({ "n" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true})
+map({ "n" }, "<leader>mdl", "<cmd>lua print(vim.inspect(vim.lsp.get_active_clients()))<cr>", { desc = "[M]isc [D]ebug show active [L]SP", remap = true})
 
 -- Misc => Translate
 local pantran = require('pantran')
