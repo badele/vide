@@ -4,7 +4,7 @@ return {
 		require("toggleterm").setup({
 			size = 20,
 			hide_numbers = true,
-			-- open_mapping = [[c-t]], -- ISSUE: if you use the  <leader>(SPACE) breaking change in insert mode
+			-- open_mapping = [[c-t]], defined in the config/keymaps.lua 
 			shade_filetypes = {},
 			shade_terminals = false,
 			shading_factor = 0.1,

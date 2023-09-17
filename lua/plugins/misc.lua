@@ -1,6 +1,26 @@
 return {
 	-- UI Component Library for Neovim.
-	"MunifTanjim/nui.nvim",
+	{ "MunifTanjim/nui.nvim" },
+	{ "onsails/lspkind.nvim" },
+
+	-- Translate
+	{
+		"potamides/pantran.nvim",
+		opts = {
+			default_engine = "argos",
+			engines = {
+				argos = {
+					-- Default languages can be defined on a per engine basis. In this case
+					-- `:lua require("pantran.async").run(function()
+					-- vim.pretty_print(require("pantran.engines").yandex:languages()) end)`
+					-- can be used to list available language identifiers.
+					default_source = "auto",
+					default_target = "fr"
+				},
+			},
+		},
+	},
+
 	{
 		lazy = false,
 		config = true,
@@ -9,7 +29,7 @@ return {
 	},
 
 	-- Detect tabstop and shiftwidth automatically
-	"tpope/vim-sleuth",
+	{ "tpope/vim-sleuth" },
 
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim", opts = {} },
