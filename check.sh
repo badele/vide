@@ -59,7 +59,7 @@ if [ "$VIDE_BASH_SUPPORT" == "true" ]; then
 	header "Bash support"
 	checkTools "printenv"
 	checkTools "shellcheck"
-	checkTools "shellharden"
+	# checkTools "shellharden"
 fi
 
 if [ "$VIDE_JSON_SUPPORT" == "true" ]; then
@@ -110,6 +110,13 @@ if [ "$VIDE_PYTHON_SUPPORT" == "true" ]; then
 	checkTools "semgrep"
 	checkTools "vulture"
 fi
+
+if [ "$VIDE_TERRAFORM_SUPPORT" == "true" ]; then
+	header "Terraform support"
+	checkTools "terraform"
+	checkTools "terraform-ls"
+fi
+
 
 if [ "$VIDE_TYPESCRIPT_SUPPORT" == "true" ]; then
 	header "Typescript support"

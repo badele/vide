@@ -21,6 +21,7 @@ return {
 
     lspconfig.marksman.setup {}
     lspconfig.pyright.setup {}
+    lspconfig.terraformls.setup{}
 
     -- Deno
     vim.g.markdown_fenced_languages = {

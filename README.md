@@ -25,7 +25,7 @@ images).
     - [2) Configure nix](#2-configure-nix)
 - [⛏️ Installation](#️-installation)
 - [💻](#💻)
-  - [✅ TODO](#todo)
+  - [✔️ TODO](#todo)
 - [Credits](#credits)
 <!--toc:end-->
 
@@ -98,33 +98,33 @@ format, lint/diagnostic, completion, action).
 
 ### 🏆 Fully supported
 
-| Language   | LSP | HL  | FO  | Lint/Diagnostic | completion | CA  | Plugins                            |
-| ---------- | --- | --- | --- | --------------- | ---------- | --- | ---------------------------------- |
-| deno       | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (denols)                 |
-| lua        | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (lua_ls)                 |
-| markdown   | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (marksman),efm(prettier) |
-| nix        | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (nixd, nil_ls, rnix      |
-| typescript | ✅  | ✅  | ✅  | ✅              | ✅         | ✅  | lspconfig (denols)                 |
+| Language   | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                            |
+| ---------- | --- | --- | --- | ---- | --- | --- | ---------------------------------- |
+| deno       | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                 |
+| lua        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (lua_ls)                 |
+| markdown   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (marksman),efm(prettier) |
+| nix        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (nixd, nil_ls, rnix      |
+| typescript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                 |
 
 
 ### 🌓 Partily supported
 
-| Language       | LSP | HL  | FO  | Lint/Diagnostic | completion | CA  | Plugins                         |
-| -------------- | --- | --- | --- | --------------- | ---------- | --- | ------------------------        |
-| ansible        | ✅  | ✅  | ❌  | ✅              | ❌         | 🔳  | ansiblels, ansible-lint         |
-| diagram        | 🔳  | ❌  | ❌  | ❌              | 🔳         | 🔳  | venn                            |
-| dockerfile     | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
-| docker-compose | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
-| go             | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
-| json           | ✅  | ✅  | ✅  | ✅              | 🔳         | 🔳  | lspconfig(jsonls), efm(fixjson) |
-| lua            | ✅  | ✅  | ✅  | ✅              | 🔳         | 🔳  | luacheck, selene, stylua        |
-| makefile       | 🔳  | ✅  | ❌  | ✅              | ❌         | 🔳  | checkmake                       |
-| markdown table | 🔳  | ❌  | ✅  | ❌              | 🔳         | 🔳  | vim-table-mode                  |
-| python         | ✅  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
-| shell          | ✅  | ✅  | ❌  | ✅              | ✅         | 🔳  | lspconfig(bashls)               |
-| terraform      | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
-| vim            | 🔳  | 🔳  | 🔳  | 🔳              | 🔳         | 🔳  | TODO                            |
-| yaml           | ✅  | ✅  | ❌  | ✅              | ❌         | ❌  | efm(yamlint,prettier)           |
+| Language       | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                           |
+| -------------- | --- | --- | --- | ---- | --- | --- | --------------------------------- |
+| ansible        | ✔️   | ✔️   | ❌  | ✔️    | ❌  | 🔳  | ansiblels, ansible-lint           |
+| diagram        | 🔳  | ❌  | ❌  | ❌   | 🔳  | 🔳  | venn                              |
+| dockerfile     | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
+| docker-compose | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
+| go             | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
+| json           | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)   |
+| lua            | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | luacheck, selene, stylua          |
+| makefile       | 🔳  | ✔️   | ❌  | ✔️    | ❌  | 🔳  | checkmake                         |
+| markdown table | 🔳  | ❌  | ✔️   | ❌   | 🔳  | 🔳  | vim-table-mode                    |
+| python         | ✔️   | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
+| shell          | ✔️   | ✔️   | ❌  | ✔️    | ✔️   | 🔳  | lspconfig(bashls)                 |
+| terraform      | ✔️   | ✔️   | ✔️   | 🔳   | ✔️   | 🔳  | lspconfig(terraform, terraform-ls |
+| vim            | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
+| yaml           | ✔️   | ✔️   | ❌  | ✔️    | ❌  | ❌  | efm(yamlint,prettier)             |
 
 **Legend :**
 `LSP-Language Server Protocol / HL-Highlight / FO-Format / CA-Code Action`
@@ -229,7 +229,7 @@ help           This help
 try-nvim       Try nvim without update your current nvim configuration
 ```
 
-### ✅ TODO
+### ✔️ TODO
 
 - **vide**
 
