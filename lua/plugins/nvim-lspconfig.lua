@@ -14,14 +14,13 @@ return {
 
     lspconfig.bashls.setup {}
 
-    -- Nix
-    lspconfig.nixd.setup {}
-    lspconfig.nil_ls.setup {}
-    lspconfig.rnix.setup {}
-
-    lspconfig.marksman.setup {}
-    lspconfig.pyright.setup {}
-    lspconfig.terraformls.setup{}
+    lspconfig.nixd.setup {}        -- nix
+    lspconfig.nil_ls.setup {}      -- nix
+    lspconfig.rnix.setup {}        -- nix
+    lspconfig.marksman.setup {}    -- markdown
+    lspconfig.pyright.setup {}     -- python
+    lspconfig.metals.setup {}      -- scala
+    lspconfig.terraformls.setup {} -- terraform
 
     -- Deno
     vim.g.markdown_fenced_languages = {

@@ -14,6 +14,7 @@ return {
 					"nix",
 					"python",
 					"query",
+					"scala",
 					"terraform",
 					"typescript",
 					"vim",

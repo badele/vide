@@ -18,6 +18,7 @@
       markdown_support = true;
       nix_support = true;
       python_support = true;
+      scala_support = true;
       terraform_support = true;
       typescript_support = true;
       yaml_support = true;
@@ -101,6 +102,8 @@
               ]))
           ];
 
+          scala_packages = with pkgs; [ sbt metals ];
+
           terraform_packages = with pkgs; [ terraform terraform-ls ];
 
           typescript_packages = with pkgs; [ deno ];
@@ -124,6 +127,7 @@
               export VIDE_MARKDOWN_SUPPORT=${boolToString markdown_support}
               export VIDE_NIX_SUPPORT=${boolToString nix_support}
               export VIDE_PYTHON_SUPPORT=${boolToString python_support}
+              export VIDE_SCALA_SUPPORT=${boolToString scala_support}
               export VIDE_TERRAFORM_SUPPORT=${boolToString terraform_support}
               export VIDE_TYPESCRIPT_SUPPORT=${boolToString typescript_support}
               export VIDE_YAML_SUPPORT=${boolToString yaml_support}
@@ -131,7 +135,8 @@
 
             packages = with pkgs;
               [
-                # git-cliff
+                # Conventional commit
+                git-cliff
                 # cocogitto
                 # nixfmt
 
@@ -170,6 +175,7 @@
               ++ optionals markdown_support markdown_packages
               ++ optionals nix_support nix_packages
               ++ optionals python_support python_packages
+              ++ optionals scala_support scala_packages
               ++ optionals terraform_support terraform_packages
               ++ optionals typescript_support typescript_packages
               ++ optionals yaml_support yaml_packages;

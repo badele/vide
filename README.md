@@ -104,6 +104,7 @@ format, lint/diagnostic, completion, action).
 | lua        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (lua_ls)                 |
 | markdown   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (marksman),efm(prettier) |
 | nix        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (nixd, nil_ls, rnix      |
+| scala      | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (metals)                 |
 | typescript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                 |
 
 
