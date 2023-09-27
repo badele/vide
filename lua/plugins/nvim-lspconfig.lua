@@ -19,6 +19,7 @@ return {
     lspconfig.rnix.setup {}        -- nix
     lspconfig.marksman.setup {}    -- markdown
     lspconfig.pyright.setup {}     -- python
+    lspconfig.ruff_lsp.setup {}    -- python
     lspconfig.metals.setup {}      -- scala
     lspconfig.terraformls.setup {} -- terraform
 

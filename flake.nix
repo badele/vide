@@ -89,16 +89,10 @@
           python_packages = with pkgs; [
             ruff
             semgrep
+            nodePackages.pyright
             (python3.withPackages (ps:
               with ps; [
-                autoflake
-                autopep8
-                black
-                mypy
-                pycodestyle
-                pydocstyle
-                pylint
-                vulture
+                ruff-lsp
               ]))
           ];
 
@@ -136,9 +130,7 @@
             packages = with pkgs;
               [
                 # Conventional commit
-                git-cliff
-                # cocogitto
-                # nixfmt
+                cocogitto
 
                 # vide project requirements
                 pre-commit

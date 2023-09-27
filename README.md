@@ -98,34 +98,34 @@ format, lint/diagnostic, completion, action).
 
 ### 🏆 Fully supported
 
-| Language   | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                            |
-| ---------- | --- | --- | --- | ---- | --- | --- | ---------------------------------- |
-| deno       | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                 |
-| lua        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (lua_ls)                 |
-| markdown   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (marksman),efm(prettier) |
-| nix        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (nixd, nil_ls, rnix      |
-| scala      | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (metals)                 |
-| typescript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                 |
+| Language   | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                                       |
+| ---------- | --- | --- | --- | ---- | --- | --- | --------------------------------------------- |
+| deno       | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                            |
+| lua        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (lua_ls)                            |
+| markdown   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (marksman),efm(prettier)            |
+| nix        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (nixd, nil_ls, rnix                 |
+| python     | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig(pyright,ruff_lsp), formatter(black) |
+| scala      | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (metals)                            |
+| typescript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                            |
 
 
 ### 🌓 Partily supported
 
-| Language       | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                           |
-| -------------- | --- | --- | --- | ---- | --- | --- | --------------------------------- |
-| ansible        | ✔️   | ✔️   | ❌  | ✔️    | ❌  | 🔳  | ansiblels, ansible-lint           |
-| diagram        | 🔳  | ❌  | ❌  | ❌   | 🔳  | 🔳  | venn                              |
-| dockerfile     | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
-| docker-compose | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
-| go             | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
-| json           | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)   |
-| lua            | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | luacheck, selene, stylua          |
-| makefile       | 🔳  | ✔️   | ❌  | ✔️    | ❌  | 🔳  | checkmake                         |
-| markdown table | 🔳  | ❌  | ✔️   | ❌   | 🔳  | 🔳  | vim-table-mode                    |
-| python         | ✔️   | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
-| shell          | ✔️   | ✔️   | ❌  | ✔️    | ✔️   | 🔳  | lspconfig(bashls)                 |
-| terraform      | ✔️   | ✔️   | ✔️   | 🔳   | ✔️   | 🔳  | lspconfig(terraform, terraform-ls |
-| vim            | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                              |
-| yaml           | ✔️   | ✔️   | ❌  | ✔️    | ❌  | ❌  | efm(yamlint,prettier)             |
+| Language       | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                              |
+| -------------- | --- | --- | --- | ---- | --- | --- | ------------------------------------ |
+| ansible        | ✔️   | ✔️   | ❌  | ✔️    | ❌  | 🔳  | ansiblels, ansible-lint              |
+| diagram        | 🔳  | ❌  | ❌  | ❌   | 🔳  | 🔳  | venn                                 |
+| dockerfile     | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
+| docker-compose | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
+| go             | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
+| json           | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
+| lua            | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | luacheck, selene, stylua             |
+| makefile       | 🔳  | ✔️   | ❌  | ✔️    | ❌  | 🔳  | checkmake                            |
+| markdown table | 🔳  | ❌  | ✔️   | ❌   | 🔳  | 🔳  | vim-table-mode                       |
+| shell          | ✔️   | ✔️   | ❌  | ✔️    | ✔️   | 🔳  | lspconfig(bashls)                    |
+| terraform      | ✔️   | ✔️   | ✔️   | 🔳   | ✔️   | 🔳  | lspconfig(terraform, terraform-ls    |
+| vim            | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
+| yaml           | ✔️   | ✔️   | ❌  | ✔️    | ❌  | ❌  | efm(yamlint,prettier)                |
 
 **Legend :**
 `LSP-Language Server Protocol / HL-Highlight / FO-Format / CA-Code Action`
