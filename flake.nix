@@ -13,6 +13,7 @@
       bash_support = true;
       deno_support = true;
       json_support = true;
+      ledger_support = true;
       lua_support = true;
       make_support = true;
       markdown_support = true;
@@ -54,6 +55,8 @@
             nodePackages.fixjson
             nodePackages.jsonlint
           ];
+
+          ledger_packages = with pkgs; [ hledger ];
 
           lua_packages = with pkgs; [
             # LSP
@@ -117,6 +120,7 @@
               export VIDE_DENO_SUPPORT=${boolToString deno_support}
               export VIDE_JSON_SUPPORT=${boolToString json_support}
               export VIDE_LUA_SUPPORT=${boolToString lua_support}
+              export VIDE_LEDGER_SUPPORT=${boolToString ledger_support}
               export VIDE_MAKE_SUPPORT=${boolToString make_support}
               export VIDE_MARKDOWN_SUPPORT=${boolToString markdown_support}
               export VIDE_NIX_SUPPORT=${boolToString nix_support}
@@ -162,6 +166,7 @@
               ++ optionals bash_support bash_packages
               ++ optionals deno_support deno_packages
               ++ optionals json_support json_packages
+              ++ optionals ledger_support ledger_packages
               ++ optionals lua_support lua_packages
               ++ optionals make_support make_packages
               ++ optionals markdown_support markdown_packages

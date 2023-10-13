@@ -65,4 +65,7 @@ return {
 		"junegunn/vim-easy-align",
 		cmd = "EasyAlign",
 	},
+
+	-- Ledger-cli
+	{ "ledger/vim-ledger" },
 }
