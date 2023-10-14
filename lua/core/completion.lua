@@ -7,6 +7,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local luasnipVS = require("luasnip.loaders.from_vscode")
 local lspkind = require("lspkind")
+local cmp_window = require "cmp.config.window"
 
 luasnipVS.lazy_load()
 luasnip.config.setup({})
@@ -28,7 +29,6 @@ cmp.setup({
 		{ name = "calc" },
 		{ name = "cmp_tabnine" },
 		{ name = "emoji" },
-
 	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
@@ -39,6 +39,21 @@ cmp.setup({
 			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 		end,
 	},
+	window = {
+		completion = cmp_window.bordered(),
+		documentation = cmp_window.bordered(),
+	},
+
+	-- window = {
+	-- 	completion = { -- rounded border; thin-style scrollbar
+	-- 		border = 'rounded',
+	-- 		scrollbar = '║',
+	-- 	},
+	-- 	documentation = { -- no border; native-style scrollbar
+	-- 		border = nil,
+	-- 		scrollbar = '',
+	-- 	},
+	-- },
 	formatting = {
 		fields = { "abbr", "menu", "kind" },
 		max_width = 0,
