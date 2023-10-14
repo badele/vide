@@ -56,7 +56,7 @@
             nodePackages.jsonlint
           ];
 
-          ledger_packages = with pkgs; [ hledger ];
+          ledger_packages = with pkgs; [ ledger hledger ];
 
           lua_packages = with pkgs; [
             # LSP
