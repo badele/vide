@@ -13,6 +13,7 @@ local function on_attach(_, bufnr)
   map({ "n" }, "<leader>cf", function()
     vim.lsp.buf.format { async = true }
   end, "[C]ode [F]ormat", opts)
+  map({ "n" }, "<leader>cF", "<cmd>Format<cr>", "Another [C]ode [F]ormater", opts)
   map({ "n" }, "<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename", opts)
   map({ "n" }, "gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration", opts)
   map({ "n" }, "gd", vim.lsp.buf.definition, "[G]oto [D]efinition", opts)
