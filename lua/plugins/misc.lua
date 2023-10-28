@@ -68,4 +68,7 @@ return {
 
 	-- Ledger-cli
 	{ "ledger/vim-ledger" },
+
+	-- justfile
+	{ "NoahTheDuke/vim-just" }
 }

@@ -119,7 +119,8 @@ format, lint/diagnostic, completion, action).
 | docker-compose | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
 | go             | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
 | json           | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
-| ledger         | ❌  | ✔️   | ✔️   | ❌   | ✔️   | ❌  | vim-ledger                           |
+| judtfile       | ❌  | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
+| ledger         | ❌  | ✔️   | ❌  | ❌   | ❌  | ❌  | vim-just                             |
 | lua            | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | luacheck, selene, stylua             |
 | makefile       | 🔳  | ✔️   | ❌  | ✔️    | ❌  | 🔳  | checkmake                            |
 | markdown table | 🔳  | ❌  | ✔️   | ❌   | 🔳  | 🔳  | vim-table-mode                       |
