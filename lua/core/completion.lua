@@ -15,10 +15,12 @@ luasnip.config.setup({})
 cmp.setup({
 	-- WARN: not modify the order
 	sources = {
+		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "treesitter" },
 		{ name = "path" },
+
 
 		{ name = 'vsnip' },   -- For vsnip users.
 		{ name = 'luasnip' }, -- For luasnip users.
@@ -62,6 +64,7 @@ cmp.setup({
 			buffer = "[Buffer]",
 			calc = "[Calc]",
 			cmp_tabnine = "[Tabnine]",
+			copilot = "[Copilot]",
 			emoji = "[Emoji]",
 			luasnip = "[Snippet]",
 			nvim_lsp = "[LSP]",

@@ -75,6 +75,7 @@ images).
     [neogit](https://github.com/NeogitOrg/neogit)
   - Indent guides
     [indent_blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
+  - [Github Copilot](https://github.com/zbirenbaum/copilot.lua)
   - LSP, diagnostic, linting
     - [lspconfig](https://github.com/neovim/nvim-lspconfig),
     - [mason](https://github.com/williamboman/mason.nvim),

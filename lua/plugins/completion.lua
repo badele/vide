@@ -32,6 +32,19 @@ return {
 				"tzachar/cmp-tabnine",
 				build = "./install.sh",
 			},
+			{
+				"zbirenbaum/copilot-cmp",
+				dependencies = { "zbirenbaum/copilot.lua" },
+				event = "InsertEnter",
+				config = function()
+					require("copilot").setup({
+						suggestion = { enabled = true, auto_trigger = false },
+						panel = { enabled = true, auto_refresh = true },
+						auto_trigger = true,
+					})
+					require("copilot_cmp").setup()
+				end
+			},
 		},
 	},
 }
