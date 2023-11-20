@@ -14,13 +14,19 @@ return {
 
     lspconfig.bashls.setup {}
 
+    lspconfig.dockerls.setup {}
+
     lspconfig.nixd.setup {}        -- nix
     lspconfig.nil_ls.setup {}      -- nix
     lspconfig.rnix.setup {}        -- nix
+
     lspconfig.marksman.setup {}    -- markdown
+
     lspconfig.pyright.setup {}     -- python
     lspconfig.ruff_lsp.setup {}    -- python
+
     lspconfig.metals.setup {}      -- scala
+
     lspconfig.terraformls.setup {} -- terraform
 
     -- Deno

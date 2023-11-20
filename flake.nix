@@ -12,6 +12,7 @@
       ansible_support = true;
       bash_support = true;
       deno_support = true;
+      dockerfile_support = true;
       json_support = true;
       ledger_support = true;
       lua_support = true;
@@ -49,6 +50,8 @@
           ];
 
           deno_packages = with pkgs; [ deno ];
+
+          dockerfile_packages = with pkgs; [ nodePackages.dockerfile-language-server-nodejs ];
 
           json_packages = with pkgs; [
             nodePackages.vscode-json-languageserver
@@ -118,6 +121,7 @@
                 export VIDE_ANSIBLE_SUPPORT=${boolToString ansible_support}
               export VIDE_BASH_SUPPORT=${boolToString bash_support}
               export VIDE_DENO_SUPPORT=${boolToString deno_support}
+              export VIDE_DOCKERFILE_SUPPORT=${boolToString dockerfile_support}
               export VIDE_JSON_SUPPORT=${boolToString json_support}
               export VIDE_LUA_SUPPORT=${boolToString lua_support}
               export VIDE_LEDGER_SUPPORT=${boolToString ledger_support}
@@ -165,6 +169,7 @@
               ] ++ optionals ansible_support ansible_packages
               ++ optionals bash_support bash_packages
               ++ optionals deno_support deno_packages
+              ++ optionals dockerfile_support dockerfile_packages
               ++ optionals json_support json_packages
               ++ optionals ledger_support ledger_packages
               ++ optionals lua_support lua_packages
