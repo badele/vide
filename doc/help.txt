@@ -310,6 +310,7 @@ gg=G                   - Indent/format code
 : lua print(vim.inspect(vim.lsp.get_active_clients()))  -  Show active LSP
 :NullLsInfo                                             -  NullLs info
 vim.lsp.set_log_level("debug")                          -  Enable LSP debug
+<CTRL-v>, press key                                     -  Show key pressed in insert mode
 :h key-notation                                         -  Show key notations
 
 debug in lua script
