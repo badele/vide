@@ -33,4 +33,4 @@ map({ "v" }, "<S-Down>", "j", { desc = "Arrow Down selection" })
 map({ "i", "v", "n", "s" }, "<C-S-S>", "<cmd>silent wa<cr><esc>", { desc = "Save all files", remap = false })
 
 -- Not copy to register during change
-map({ "n", "i" }, 'c', '"_c', { desc = "Remap change" })
+map({ "n" }, 'c', '"_c', { desc = "Remap change" })
