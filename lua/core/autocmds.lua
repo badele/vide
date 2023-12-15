@@ -16,8 +16,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-	buffer = buffer,
 	callback = function()
 		vim.lsp.buf.format { async = false }
+	end
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "#202232" })
+	end
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "#222436" })
 	end
 })
