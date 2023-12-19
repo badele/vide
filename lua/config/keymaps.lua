@@ -38,13 +38,18 @@ wk.register({
 ------------------------------------------------------------------------------
 map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Show tt[Y] terminal", remap = true })
 map({ "n" }, "<M-q>", "<cmd>bdelete<cr>", { desc = "Close buffer", remap = true })
-map({ "n" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true})
-map({ "n" }, "<leader>mdl", "<cmd>lua print(vim.inspect(vim.lsp.get_active_clients()))<cr>", { desc = "[M]isc [D]ebug show active [L]SP", remap = true})
+map({ "n" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true })
+map({ "n" }, "<leader>mdl", "<cmd>lua print(vim.inspect(vim.lsp.get_active_clients()))<cr>",
+	{ desc = "[M]isc [D]ebug show active [L]SP", remap = true })
+
+-- Indent
+map("v", ">", ">gv", { desc = "Indent >" })
+map("v", "<", "<gv", { desc = "Indent <" })
 
 -- Misc => Translate
 local pantran = require('pantran')
 map({ "n" }, "<leader>mt", "<cmd>Pantran<cr>", { desc = "[T]ranslate", remap = true })
-map({ "x" }, "<leader>mt", pantran.motion_translate, { desc = "[T]ranslate", remap = true, expr=true })
+map({ "x" }, "<leader>mt", pantran.motion_translate, { desc = "[T]ranslate", remap = true, expr = true })
 
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
