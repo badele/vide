@@ -118,6 +118,7 @@ format, lint/diagnostic, completion, action).
 | ansible        | ✔️   | ✔️   | ❌  | ✔️    | ❌  | 🔳  | ansiblels, ansible-lint              |
 | diagram        | 🔳  | ❌  | ❌  | ❌   | 🔳  | 🔳  | venn                                 |
 | docker-compose | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
+| gnuplot        | 🔳  | ✔️   | 🔳  | 🔳   | 🔳  | 🔳  | Use filetype.nvim type detection     |
 | go             | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
 | json           | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
 | judtfile       | ❌  | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |

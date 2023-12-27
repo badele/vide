@@ -3,6 +3,18 @@ return {
 	{ "MunifTanjim/nui.nvim" },
 	{ "onsails/lspkind.nvim" },
 
+	-- Replace vim filetype detection
+	{
+		"nathom/filetype.nvim",
+		opts = {
+			overrides = {
+				extensions = {
+					plt = "gnuplot",
+				},
+			},
+		},
+	},
+
 	-- Translate
 	{
 		"potamides/pantran.nvim",
