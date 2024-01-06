@@ -42,6 +42,12 @@ map({ "n" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown prev
 map({ "n" }, "<leader>mdl", "<cmd>lua print(vim.inspect(vim.lsp.get_active_clients()))<cr>",
 	{ desc = "[M]isc [D]ebug show active [L]SP", remap = true })
 
+-- Custom help
+map({ "n", "i", "v", "x" }, "<F1>", "<cmd>help MyVimHelp<cr>", { desc = "Show VIDE help" })
+map({ "n", "i", "v", "x" }, "<F13>", "<cmd>helptags ~/.config/nvim/doc<cr>", { desc = "Refresh VIDE helptags" })
+map({ "n" }, "<K>", "<C-]", { desc = "Goto help anchor" })
+
+
 -- Indent
 map("v", ">", ">gv", { desc = "Indent >" })
 map("v", "<", "<gv", { desc = "Indent <" })
@@ -71,7 +77,7 @@ map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T
 -- map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 -- map('n', "<leader>sr", require("spectre").open, { desc = "[S]earch & Replace in files (Spectre)"})
 -- map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
--- map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 
 -- vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 -- vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })

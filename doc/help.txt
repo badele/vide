@@ -2,12 +2,12 @@ vim: filetype=help foldmethod=marker foldmarker=<<<,>>> modifiable noreadonly
 help.txt* Neovim help
 
 
-                         ____   ____.__    .___      ~
-                         \   \ /   /|__| __| _/____  ~
-                          \   Y   / |  |/ __ |/ __ \ ~
-                           \     /  |  / /_/ \  ___/ ~
-                            \___/   |__\____ |\___  >~
-                                            \/    \/ ~
+                         ____   ____.__    .___       
+                         \   \ /   /|__| __| _/____   
+                          \   Y   / |  |/ __ |/ __ \  
+                           \     /  |  / /_/ \  ___/  
+                            \___/   |__\____ |\___  > 
+                                            \/    \/  
 
 
                                   vide help
@@ -25,7 +25,8 @@ CONTENTS                                                               *MyVimHel
     6. Coding ...............   |MyVimCoding|
     7. Debug ................   |MyVimDebug|
 
-NOTE: this help with refresh with `<leader>hr`
+NOTE:
+- Goto help link anchor with <C-]>
 
 ================================================================================
 
@@ -67,20 +68,20 @@ The neovim ide is made up of the following tools:
 <leader>e        Explorer
 <leader>g        Git
 <leader>f        Files
-<leader>h        Help
 <leader>s        Search
+  <leader>sh     Search Help
 <leader>t        Text
 <leader>u        User Interface
-    <leader>un   Dismiss all Notificationsn
-    <leader>ui   Inspect Pos
-    <leader>uc   Toggle Concealn
-    <leader>ud   Toggle Diagnosticsn
-    <leader>ul   Toggle Line Numbersn
-    <leader>uw   Toggle Word Wrapn
-    <leader>us   Toggle Spellingn
-    <leader>uf   Toggle format on Saven
-    <leader>ur   Redraw / clear hlsearch / diff updaten
-    <leader>uC   Colorscheme with preview
+  <leader>un   Dismiss all Notificationsn
+  <leader>ui   Inspect Pos
+  <leader>uc   Toggle Concealn
+  <leader>ud   Toggle Diagnosticsn
+  <leader>ul   Toggle Line Numbersn
+  <leader>uw   Toggle Word Wrapn
+  <leader>us   Toggle Spellingn
+  <leader>uf   Toggle format on Saven
+  <leader>ur   Redraw / clear hlsearch / diff updaten
+  <leader>uC   Colorscheme with preview
 
 <leader><Tab>   Bufferline tabs
 
@@ -100,8 +101,8 @@ Note: This output generated with :
 
 == Help ==
 F1         - show this help
-Shift + F1 - refresh help tokens
-K          - Open VIM manual word under cusor
+Shift + F1 - refresh help tags
+K          - Follow VIM help tag under cusor
 
 
 == Custom key ==
@@ -121,6 +122,7 @@ Esc or Ctrl + c     -  exit visual Mode
 
 
 == Comment ==
+<leader>+/
 gc              - comment current line (visual mode)
 gb              - comment current block (visual mode
 
@@ -186,8 +188,9 @@ Esc or Ctrl + c - exit insert mode
 
 r,R             - replace a single character, replace more than one character,
                 until ESC is pressed.
-J               - join line below to the current one with one space in between
-gJ              - join line below to the current one without space in between
+J               - unwrap / join line below to the current one with one space in between
+gJ              - unwrap / join line below to the current one without space in between
+gw / gqq        - wrap 
 gwip            - reflow paragraph
 g~              - switch case up to motion
 gu              - change to lowercase up to motion
