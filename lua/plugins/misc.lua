@@ -3,6 +3,14 @@ return {
 	{ "MunifTanjim/nui.nvim" },
 	{ "onsails/lspkind.nvim" },
 
+	-- Colorizer
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
+
 	-- Replace vim filetype detection
 	{
 		"nathom/filetype.nvim",
@@ -10,6 +18,8 @@ return {
 			overrides = {
 				extensions = {
 					plt = "gnuplot",
+					sql = "sql",
+					sh = "bash",
 				},
 			},
 		},
