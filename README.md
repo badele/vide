@@ -102,6 +102,7 @@ format, lint/diagnostic, completion, action).
 | Language   | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                                        |
 | ---------- | --- | --- | --- | ---- | --- | --- | ---------------------------------------------  |
 | deno       | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                             |
+| javascript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                             |
 | dockerfile | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (dockerls)                           |
 | lua        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (lua_ls)                             |
 | markdown   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (marksman),efm(prettier)             |
