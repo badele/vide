@@ -4,13 +4,6 @@ return {
 		branch = "v3.x",
 		cmd = "Neotree",
 		keys = {
-			{
-				"<leader>ue",
-				function()
-					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-				end,
-				desc = "[U]ser file [E]xplorer",
-			},
 		},
 		deactivate = function()
 			vim.cmd([[Neotree close]])

@@ -7,10 +7,11 @@ end
 -------------------------------------------------------------------------------
 
 -- Visual Studio keys mapping
-map({ "i", "v", "n", "s" }, "<C-n>", "<cmd>tabnew<cr><esc>", { desc = "New file (VS)" })
+map({ "i", "v", "n", "s" }, "<C-n>", "<cmd>tabnew<cr><esc>", { desc = "New file (VS)", remap = true })
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", { desc = "Save file (VS)" })
 map({ "i", "v", "n", "s" }, "<C-S-S>", "<cmd>silent wa<cr><esc>", { desc = "Save all files", remap = false })
 map({ "i", "v", "n", "s" }, "<C-p>", "<cmd>Telescope oldfiles<cr>", { desc = "Recently opened files (VS)" })
+map({ "i", "v", "n", "s" }, "<C-S-E>", '<esc><cmd>lua require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })<cr>', { desc = "Toogle files explorer (VS)" })
 
 -- Search
 map({ "i" }, "<C-f>", '<esc>/', { desc = "Search (VS)" })
@@ -23,9 +24,9 @@ map({ "v" }, "<C-S-h>", '<esc><cmd>lua require("spectre").open_visual()<CR>',
 	{ desc = "Replace files (VS)" })
 
 -- Search & Replace on current file
-map({ "n",  }, "<C-h>", '<esc><cmd>lua require("spectre").open_file_search(select_word=true)<CR>',
+map({ "n", }, "<C-h>", '<esc><cmd>lua require("spectre").open_file_search(select_word=true)<CR>',
 	{ desc = "Replace on current file (VS)" })
-map({ "v",  }, "<C-h>", '<esc><cmd>lua require("spectre").open_file_search()<CR>',
+map({ "v", }, "<C-h>", '<esc><cmd>lua require("spectre").open_file_search()<CR>',
 	{ desc = "Replace on current file (VS)" })
 
 -- Error or Warning navigation
