@@ -10,8 +10,10 @@ end
 map({ "i", "v", "n", "s" }, "<C-n>", "<cmd>tabnew<cr><esc>", { desc = "New file (VS)", remap = true })
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", { desc = "Save file (VS)" })
 map({ "i", "v", "n", "s" }, "<C-S-S>", "<cmd>silent wa<cr><esc>", { desc = "Save all files", remap = false })
-map({ "i", "v", "n", "s" }, "<C-p>", "<cmd>Telescope oldfiles<cr>", { desc = "Recently opened files (VS)" })
-map({ "i", "v", "n", "s" }, "<C-S-E>", '<esc><cmd>lua require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })<cr>', { desc = "Toogle files explorer (VS)" })
+map({ "i", "v", "n", "s" }, "<C-p>", "<cmd>Telescope oldfiles<cr>", { desc = "Recently opened files (VS)", remap = true })
+map({ "i", "v", "n", "s" }, "<C-S-E>",
+	'<esc><cmd>lua require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })<cr>',
+	{ desc = "Toogle files explorer (VS)" })
 
 -- Search
 map({ "i" }, "<C-f>", '<esc>/', { desc = "Search (VS)" })
