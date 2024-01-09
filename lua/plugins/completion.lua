@@ -28,10 +28,10 @@ return {
 			"hrsh7th/cmp-emoji",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
-			{
-				"tzachar/cmp-tabnine",
-				build = "./install.sh",
-			},
+			-- {
+			-- 	"tzachar/cmp-tabnine",
+			-- 	build = "./install.sh",
+			-- },
 			{
 				"zbirenbaum/copilot-cmp",
 				dependencies = { "zbirenbaum/copilot.lua" },
