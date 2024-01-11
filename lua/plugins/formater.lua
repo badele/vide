@@ -7,6 +7,11 @@ return {
 			log_level = vim.log.levels.DEBUG,
 			-- All formatter configurations are opt-in
 			filetype = {
+				sh = {
+					-- require("formatter.filetypes.python").black,
+					require("formatter.filetypes.sh").shfmt
+					-- require("formatter.filetypes.nix").nixfmt,
+				},
 				-- lua = {
 				-- 	require("formatter.filetypes.lua").stylua,
 				-- 	-- require("formatter.filetypes.lua").luafmt,

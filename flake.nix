@@ -46,7 +46,7 @@
           bash_packages = with pkgs; [
             nodePackages.bash-language-server
             shellcheck
-            # shfmt shellharden 
+            shfmt
           ];
 
           deno_packages = with pkgs; [ deno ];
