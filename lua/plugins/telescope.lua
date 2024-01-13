@@ -75,7 +75,6 @@ return {
 			--     ------------------------------------------------------------------------------
 			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_fin<cr>", desc = "[S]earch in current [B]uffer" },
 			{ "<leader>sw", "<cmd>Telescope grep_string<cr>",              desc = "[S]earch current [W]ord" },
-			{ "<leader>sg", "<cmd>Telescope live_grep<cr>",                desc = "[S]earch by [G]rep" },
 			{
 				"<leader>sG",
 				"<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
