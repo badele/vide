@@ -107,6 +107,7 @@ format, lint/diagnostic, completion, action).
 | lua        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (lua_ls)                             |
 | markdown   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (marksman),efm(prettier)             |
 | nix        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (nixd, nil_ls, rnix                  |
+| openscad   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfigi(openscad-lsp)                       |
 | python     | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (pyright,ruff_lsp), formatter(black) |
 | scala      | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (metals)                             |
 | typescript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                             |
@@ -122,7 +123,7 @@ format, lint/diagnostic, completion, action).
 | gnuplot        | 🔳  | ✔️   | 🔳  | 🔳   | 🔳  | 🔳  | Use filetype.nvim type detection     |
 | go             | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
 | json           | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
-| judtfile       | ❌  | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
+| justfile       | ❌  | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
 | ledger         | ❌  | ✔️   | ❌  | ❌   | ❌  | ❌  | vim-just                             |
 | lua            | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | luacheck, selene, stylua             |
 | makefile       | 🔳  | ✔️   | ❌  | ✔️    | ❌  | 🔳  | checkmake                            |

@@ -20,6 +20,7 @@ return {
 					plt = "gnuplot",
 					sql = "sql",
 					sh = "bash",
+					scad = "openscad",
 				},
 			},
 		},

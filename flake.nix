@@ -19,6 +19,7 @@
       make_support = true;
       markdown_support = true;
       nix_support = true;
+      openscad_support = true;
       python_support = true;
       scala_support = true;
       terraform_support = true;
@@ -29,7 +30,12 @@
         [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forEachSupportedSystem = f:
         nixpkgs.lib.genAttrs supportedSystems
-          (system: f { pkgs = import nixpkgs { inherit system; }; });
+          (system: f {
+            pkgs = import nixpkgs {
+              inherit system;
+              config.allowUnfree = true; # For terraform
+            };
+          });
     in
     {
       devShells = forEachSupportedSystem ({ pkgs }:
@@ -92,6 +98,8 @@
             statix
           ];
 
+          openscad_packages = with pkgs; [ openscad openscad-lsp clang ];
+
           python_packages = with pkgs; [
             ruff
             semgrep
@@ -101,6 +109,8 @@
                 ruff-lsp
               ]))
           ];
+
+
 
           scala_packages = with pkgs; [ sbt metals ];
 
@@ -129,6 +139,7 @@
               export VIDE_MARKDOWN_SUPPORT=${boolToString markdown_support}
               export VIDE_NIX_SUPPORT=${boolToString nix_support}
               export VIDE_PYTHON_SUPPORT=${boolToString python_support}
+              export VIDE_OPENSCAD_SUPPORT=${boolToString openscad_support}
               export VIDE_SCALA_SUPPORT=${boolToString scala_support}
               export VIDE_TERRAFORM_SUPPORT=${boolToString terraform_support}
               export VIDE_TYPESCRIPT_SUPPORT=${boolToString typescript_support}
@@ -176,6 +187,7 @@
               ++ optionals make_support make_packages
               ++ optionals markdown_support markdown_packages
               ++ optionals nix_support nix_packages
+              ++ optionals openscad_support openscad_packages
               ++ optionals python_support python_packages
               ++ optionals scala_support scala_packages
               ++ optionals terraform_support terraform_packages
