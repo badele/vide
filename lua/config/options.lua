@@ -25,7 +25,7 @@ opt.laststatus = 3         -- Force to show global line, used by lualine
 opt.list = true            -- Show some invisible characters (tabs...
 opt.listchars = {
 	tab      = ">>",
-	lead     = ".",
+	-- lead     = ".",
 	trail    = "󰅨",
 	precedes = "←",
 	extends  = "→",
@@ -61,6 +61,10 @@ opt.updatetime = 200               -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5                -- Minimum window width
 opt.wrap = false                   -- Disable line wrap
+
+-- Define comment by filetype (commentstring)
+local ft = require('Comment.ft')
+ft.openscad = { '//%s', '/*%s*/' }
 
 -- if vim.fn.has("nvim-0.9.0") == 1 then
 -- 	opt.splitkeep = "screen"
