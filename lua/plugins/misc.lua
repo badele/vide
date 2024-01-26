@@ -19,7 +19,7 @@ return {
 				extensions = {
 					plt = "gnuplot",
 					sql = "sql",
-					sh = "bash",
+					sh = "sh",
 					scad = "openscad",
 				},
 			},

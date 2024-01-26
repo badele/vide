@@ -54,7 +54,6 @@ if [ "$VIDE_ANSIBLE_SUPPORT" == "true" ]; then
 	checkTools "ansible-lint"
 fi
 
-
 if [ "$VIDE_BASH_SUPPORT" == "true" ]; then
 	header "Bash support"
 	checkTools "printenv"
@@ -116,7 +115,6 @@ if [ "$VIDE_TERRAFORM_SUPPORT" == "true" ]; then
 	checkTools "terraform"
 	checkTools "terraform-ls"
 fi
-
 
 if [ "$VIDE_TYPESCRIPT_SUPPORT" == "true" ]; then
 	header "Typescript support"
