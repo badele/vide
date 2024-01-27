@@ -58,7 +58,7 @@ if [ "$VIDE_BASH_SUPPORT" == "true" ]; then
 	header "Bash support"
 	checkTools "printenv"
 	checkTools "shellcheck"
-	# checkTools "shellharden"
+	checkTools "shellharden"
 fi
 
 if [ "$VIDE_JSON_SUPPORT" == "true" ]; then

@@ -27,6 +27,7 @@ images).
 - [💻](#💻)
   - [✔️ TODO](#todo)
 - [Credits](#credits)
+
 <!--toc:end-->
 
 ![dashboard](./doc/img/plug_dashboard.png)
@@ -79,17 +80,15 @@ images).
   - LSP, diagnostic, linting
     - [lspconfig](https://github.com/neovim/nvim-lspconfig),
     - [mason](https://github.com/williamboman/mason.nvim),
-    - [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+    - [none-ls](https://github.com/nvimtools/none-ls.nvim)
     - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
     - [trouble](https://github.com/folke/trouble.nvim)
-    - [formatter.nvim](https://github.com/mhartington/formatter.nvim)
-    - [nvim-lint](https://github.com/mfussenegger/nvim-lint),
+    - [ts-node-action](https://github.com/CKolkey/ts-node-action)
   - Keymap popup [which-key](https://github.com/folke/which-key.nvim)
   - Preview markdown result
     [mardown-preview](https://github.com/iamcco/markdown-preview.nvim),
 - ⛏️ External
-  - Conventional commits
-    [commitizen](https://github.com/commitizen-tools/commitizen)
+  - Conventional commits [cocogitto](https://github.com/cocogitto/cocogitto)
 
 ## 💬 **Language support**
 
@@ -99,39 +98,38 @@ format, lint/diagnostic, completion, action).
 
 ### 🏆 Fully supported
 
-| Language   | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                                        |
-| ---------- | --- | --- | --- | ---- | --- | --- | ---------------------------------------------  |
-| deno       | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                             |
-| javascript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                             |
-| dockerfile | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (dockerls)                           |
-| lua        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (lua_ls)                             |
-| markdown   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (marksman),efm(prettier)             |
-| nix        | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (nixd, nil_ls, rnix                  |
-| openscad   | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfigi(openscad-lsp)                       |
-| python     | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (pyright,ruff_lsp), formatter(black) |
-| scala      | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (metals)                             |
-| typescript | ✔️   | ✔️   | ✔️   | ✔️    | ✔️   | ✔️   | lspconfig (denols)                             |
-
+| Language   | LSP | HL | FO | Lint | cmp | CA | Plugins                                      |
+| ---------- | --- | -- | -- | ---- | --- | -- | -------------------------------------------- |
+| deno       | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                           |
+| javascript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                           |
+| dockerfile | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (dockerls)                         |
+| lua        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (lua_ls)                           |
+| markdown   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (marksman),node-ls(markdownlint)   |
+| nix        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (nixd, nil_ls, rnix)               |
+| openscad   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (openscad-lsp)                     |
+| python     | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (pyright,ruff_lsp), node-ls(black) |
+| scala      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (metals)                           |
+| shell      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (bashls), none-ls(shellharden)     |
+| typescript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                           |
 
 ### 🌓 Partily supported
 
-| Language       | LSP | HL  | FO  | Lint | cmp | CA  | Plugins                              |
-| -------------- | --- | --- | --- | ---- | --- | --- | ------------------------------------ |
-| ansible        | ✔️   | ✔️   | ❌  | ✔️    | ❌  | 🔳  | ansiblels, ansible-lint              |
-| diagram        | 🔳  | ❌  | ❌  | ❌   | 🔳  | 🔳  | venn                                 |
-| docker-compose | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
-| gnuplot        | 🔳  | ✔️   | 🔳  | 🔳   | 🔳  | 🔳  | Use filetype.nvim type detection     |
-| go             | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
-| json           | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
-| justfile       | ❌  | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | lspconfig(jsonls), efm(fixjson)      |
-| ledger         | ❌  | ✔️   | ❌  | ❌   | ❌  | ❌  | vim-just                             |
-| lua            | ✔️   | ✔️   | ✔️   | ✔️    | 🔳  | 🔳  | luacheck, selene, stylua             |
-| makefile       | 🔳  | ✔️   | ❌  | ✔️    | ❌  | 🔳  | checkmake                            |
-| markdown table | 🔳  | ❌  | ✔️   | ❌   | 🔳  | 🔳  | vim-table-mode                       |
-| shell          | ✔️   | ✔️   | ❌  | ✔️    | ✔️   | 🔳  | lspconfig(bashls)                    |
-| terraform      | ✔️   | ✔️   | ✔️   | 🔳   | ✔️   | 🔳  | lspconfig(terraform, terraform-ls    |
-| vim            | 🔳  | 🔳  | 🔳  | 🔳   | 🔳  | 🔳  | TODO                                 |
-| yaml           | ✔️   | ✔️   | ❌  | ✔️    | ❌  | ❌  | efm(yamlint,prettier)                |
+| Language       | LSP | HL | FO | Lint | cmp | CA | Plugins                           |
+| -------------- | --- | -- | -- | ---- | --- | -- | --------------------------------- |
+| ansible        | ✔️   | ✔️  | ❌ | ✔️    | ❌  | 🔳 | ansiblels, ansible-lint           |
+| diagram        | 🔳  | ❌ | ❌ | ❌   | 🔳  | 🔳 | venn                              |
+| docker-compose | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                              |
+| gnuplot        | 🔳  | ✔️  | 🔳 | 🔳   | 🔳  | 🔳 | Use filetype.nvim type detection  |
+| go             | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                              |
+| json           | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)   |
+| justfile       | ❌  | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)   |
+| ledger         | ❌  | ✔️  | ❌ | ❌   | ❌  | ❌ | vim-just                          |
+| lua            | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | luacheck, selene, stylua          |
+| makefile       | 🔳  | ✔️  | ❌ | ✔️    | ❌  | 🔳 | checkmake                         |
+| markdown table | 🔳  | ❌ | ✔️  | ❌   | 🔳  | 🔳 | vim-table-mode                    |
+| terraform      | ✔️   | ✔️  | ✔️  | 🔳   | ✔️   | 🔳 | lspconfig(terraform, terraform-ls |
+| vim            | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                              |
+| yaml           | ✔️   | ✔️  | ❌ | ✔️    | ❌  | ❌ | efm(yamlint,prettier)             |
 
 **Legend :**
 `LSP-Language Server Protocol / HL-Highlight / FO-Format / CA-Code Action`

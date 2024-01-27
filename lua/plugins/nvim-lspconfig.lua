@@ -51,13 +51,13 @@ return {
     }
 
     -- EFM engine language server
-    lspconfig.efm.setup {
-      init_options = { documentFormatting = true },
-      -- cmd = { "efm-langserver", "-loglevel", "5", "-logfile", "/tmp/efm.log", "-c",
-      cmd = { "efm-langserver", "-c",
-        vim.loop.cwd() .. "/.efm-langserver.yaml" },
-      filetypes = { 'json', 'yaml' }
-    }
+    -- lspconfig.efm.setup {
+    --   init_options = { documentFormatting = true },
+    --   -- cmd = { "efm-langserver", "-loglevel", "5", "-logfile", "/tmp/efm.log", "-c",
+    --   cmd = { "efm-langserver", "-c",
+    --     vim.loop.cwd() .. "/.efm-langserver.yaml" },
+    --   filetypes = { 'json', 'yaml' }
+    -- }
 
     -- JSON
     capabilities.textDocument.completion.completionItem.snippetSupport = true

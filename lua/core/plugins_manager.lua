@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins installation
 -------------------------------------------------------------------------------
 require("lazy").setup(
-	-- plugins
+-- plugins
 	{
 		import = "plugins",
 	},
@@ -29,13 +29,13 @@ require("lazy").setup(
 			lazy = false,
 			version = false, -- always use the latest git commit
 		},
-		checker = { 
+		checker = {
 			enabled = true,
-			 notify = false
+			notify = false
 		}, -- automatically check for plugin updates
-		  change_detection = {
-    enabled = false,
-  },
+		change_detection = {
+			enabled = false,
+		},
 		performance = {
 			rtp = {
 				-- disable some rtp plugins

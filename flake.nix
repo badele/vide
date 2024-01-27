@@ -4,7 +4,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   # inputs.nixpkgs.url = "path:/home/badele/ghq/github.com/badele/fork-nixpkgs";
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, }:
     let
       ###########################################################################
       # Lanuages Activation
@@ -29,8 +29,8 @@
       supportedSystems =
         [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forEachSupportedSystem = f:
-        nixpkgs.lib.genAttrs supportedSystems
-          (system: f {
+        nixpkgs.lib.genAttrs supportedSystems (system:
+          f {
             pkgs = import nixpkgs {
               inherit system;
               config.allowUnfree = true; # For terraform
@@ -40,24 +40,22 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }:
         let
-          aliascommit = pkgs.writeShellScriptBin "commit" "cz commit";
-
           ###########################################################################
           # Lanuages support
           ###########################################################################
-          ansible_packages = with pkgs; [
-            ansible-lint
-          ];
+          ansible_packages = with pkgs; [ ansible-lint ];
 
           bash_packages = with pkgs; [
             nodePackages.bash-language-server
             shellcheck
+            shellharden
             shfmt
           ];
 
           deno_packages = with pkgs; [ deno ];
 
-          dockerfile_packages = with pkgs; [ nodePackages.dockerfile-language-server-nodejs ];
+          dockerfile_packages = with pkgs;
+            [ nodePackages.dockerfile-language-server-nodejs ];
 
           json_packages = with pkgs; [
             nodePackages.vscode-json-languageserver
@@ -104,13 +102,8 @@
             ruff
             semgrep
             nodePackages.pyright
-            (python3.withPackages (ps:
-              with ps; [
-                ruff-lsp
-              ]))
+            (python3.withPackages (ps: with ps; [ ruff-lsp ]))
           ];
-
-
 
           scala_packages = with pkgs; [ sbt metals ];
 
@@ -118,11 +111,7 @@
 
           typescript_packages = with pkgs; [ deno ];
 
-          yaml_packages = with pkgs; [
-            yamlfmt
-            yamllint
-          ];
-
+          yaml_packages = with pkgs; [ yamlfmt yamllint ];
         in
         with pkgs;
         with lib; {
@@ -153,8 +142,6 @@
 
                 # vide project requirements
                 pre-commit
-                commitizen
-                aliascommit
 
                 # neovim and plugins build requirements
                 cargo
@@ -175,7 +162,7 @@
                 xclip
 
                 # Misc language
-                efm-langserver
+                # efm-langserver
                 nodePackages.prettier
               ] ++ optionals ansible_support ansible_packages
               ++ optionals bash_support bash_packages
