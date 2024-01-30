@@ -85,8 +85,11 @@ images).
     - [trouble](https://github.com/folke/trouble.nvim)
     - [ts-node-action](https://github.com/CKolkey/ts-node-action)
   - Keymap popup [which-key](https://github.com/folke/which-key.nvim)
-  - Preview markdown result
-    [mardown-preview](https://github.com/iamcco/markdown-preview.nvim),
+  - tools
+    - Preview markdown result
+      [mardown-preview](https://github.com/iamcco/markdown-preview.nvim),
+    - Convert ascii to tree
+      [asciitree](https://github.com/riddlew/asciitree.nvim)
 - ⛏️ External
   - Conventional commits [cocogitto](https://github.com/cocogitto/cocogitto)
 

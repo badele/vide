@@ -1,4 +1,6 @@
 return {
+	-- convert to tree
+	{ "xorid/asciitree.nvim" },
 	-- UI Component Library for Neovim.
 	{ "MunifTanjim/nui.nvim" },
 	{ "onsails/lspkind.nvim" },
@@ -38,7 +40,7 @@ return {
 					-- vim.pretty_print(require("pantran.engines").yandex:languages()) end)`
 					-- can be used to list available language identifiers.
 					default_source = "auto",
-					default_target = "fr"
+					default_target = "fr",
 				},
 			},
 		},
@@ -93,5 +95,5 @@ return {
 	{ "ledger/vim-ledger" },
 
 	-- justfile
-	{ "NoahTheDuke/vim-just" }
+	{ "NoahTheDuke/vim-just" },
 }
