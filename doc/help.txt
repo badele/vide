@@ -15,22 +15,22 @@ help.txt* Neovim help
                                  Bruno Adelé
 
 ================================================================================
-CONTENTS                                                               *MyVimHelp*
+CONTENTS                                                                    *Vide*
 
-    1. Neovim plugins .......   |MyVimPlugins|
-    2. Keys leader ..........   |MyVimKeysLeader|
-    3. Keys mapping .........   |MyVimKeysMapping|
-    4. Telescope ............   |MyVimTelescope|
-    5. Quickfixlist .........   |MyVimQuickfixlist|
-    6. Coding ...............   |MyVimCoding|
-    7. Debug ................   |MyVimDebug|
+    1. Neovim plugins .......   |VidePlugins|
+    2. Keys leader ..........   |VideKeysLeader|
+    3. Keys mapping .........   |VideKeysMapping|
+    4. Telescope ............   |VideTelescope|
+    5. Quickfixlist .........   |VideQuickfixlist|
+    6. Coding ...............   |VideCoding|
+    7. Debug ................   |VideDebug|
 
 NOTE:
-- Goto help link anchor with <C-]>
+- Follow link <S-K>
 
 ================================================================================
 
-                             == *MyVimPlugins* ==
+                             == *VidePlugins* ==
                              Main neovim plugins
 
 The neovim ide is made up of the following tools:
@@ -54,13 +54,12 @@ The neovim ide is made up of the following tools:
 | tokyonigh          | Colorscheme                                                 |
 | trouble            | A pretty diagnostics, references, quickfix                  |
 | venn               | Diagram editor                                              |
-| vim-table-mode     | Table mode editor (Markdown, Rst)                           |
 | which-key          | Displays a popup with possible keybindings                  |
 
                                      ---
 
 
-                             == *MyVimKeysLeader* ==
+                            == *VideKeysLeader* ==
 
 
 <leader>b        Buffer
@@ -95,7 +94,7 @@ Note: This output generated with :
                                      ---
 
 
-                             == *MyVImKeysMapping* ==
+                           == *MyVImKeysMapping* ==
 
                     Cheatsheet from https://vim.rtorr.com/
 
@@ -269,19 +268,19 @@ holding the mark.
 
 
 
-                            == *MyVimTelescope* ==
+                            == *VideTelescope* ==
 
 == Live grep
 Ctrl + k  - Surround quote
 -t <ext>         - filter with extension (ripgrep option)
 -g "<folder>/*"  - Filter on specific folder
-                            == *MyVimQuifixlist* ==
+                            == *VideQuifixlist* ==
 
 Alt + Q   - Send seledted to quick fix list
 Ctrl + Q  - Send all result to quick fix list
 
 ================
-== *MyVimCoding* ==
+== *VideCoding* ==
 ================
 
 ... *Indent/FormatCode* ...
@@ -303,15 +302,16 @@ gg=G                   - Indent/format code
 :%s/<search>/<replace>/gc (all lines + confirmation)
 
 
-                              == *MyVimDebug* ==
+                              == *VideDebug* ==
 
 :h provider                                             -  Check vim external provider
 :checkhealth or :checkhealth <name>                     -  Check vim installation
 :CmpStatus                                              -  Check completion st
+:ConformInfo                                            -  Show Conform configuration
 :LspInfo                                                -  Show the LSP confirmation
 :LspLog                                                 -  Show LSP log
+:Lazy                                                   -  Show lazy plugins informations
 : lua print(vim.inspect(vim.lsp.get_active_clients()))  -  Show active LSP
-:NullLsInfo                                             -  NullLs info
 vim.lsp.set_log_level("debug")                          -  Enable LSP debug
 <CTRL-v>, press key                                     -  Show key pressed in insert mode
 :h key-notation                                         -  Show key notations
