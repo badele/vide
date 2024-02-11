@@ -1,31 +1,33 @@
 <p align="center">
-  <img src="./doc/img/vide_logo.png"/>
+  <img src="./doc/img/vide_logo.png" alt="vide logo"/>
 </p>
 
 Welcome to my personalized Neovim configuration! This configuration is tailored
 primarily for DevOps tasks but can also be utilized by developers working with
 languages like Bash, Go, JSON, Python, Terraform, TypeScript, and more.
 
-I've aimed to streamline the installation process by creating installation
+I've aimed to streamline the installation process by creating a installation
+script based on `flake.nix`
+
 scripts for your preferred distributions (you can even test it on Docker
 images).
 
 <!--toc:start-->
 
-- [🎁 Features](#🎁-features)
-- [🛒 Plugins](#🛒-plugins)
-- [💬 **Language support**](#💬-language-support)
-  - [🏆 Fully supported](#🏆-fully-supported)
-  - [🌓 Partily supported](#🌓-partily-supported)
-- [⌨️ keybinding](#️-keybinding)
-- [🎮 Try](#🎮-try)
+- [Features](#features)
+- [Plugins](#plugins)
+- [Language support](#language-support)
+  - [Fully supported](#fully-supported)
+  - [Partily supported](#partily-supported)
+- [keybinding](#keybinding)
+- [Try](#try)
   - [Try on docker image](#try-on-docker-image)
-  - [Try on your distribution](#try-on-your-distribution)
-    - [1) Select nix installation from your distribution](#1-select-nix-installation-from-your-distribution)
+  - [Try on your distribution with nix](#try-on-your-distribution-with-nix)
+    - [1) Select nix installation](#1-select-nix-installation)
     - [2) Configure nix](#2-configure-nix)
-- [⛏️ Installation](#️-installation)
-- [💻](#💻)
-  - [✔️ TODO](#todo)
+- [Installation](#installation)
+- [Available commands](#available-commands)
+  - [TODO](#todo)
 - [Credits](#credits)
 
 <!--toc:end-->
@@ -34,7 +36,7 @@ images).
 ![neotree-symbolsoutline](./doc/img/plug_neotree_symbolsoutline.png)
 ![telescope](./doc/img/plug_telescope.png) ![git](./doc/img/plug_lazygit.png)
 
-## 🎁 Features
+## Features
 
 - **DevOps-Centric:** This Neovim setup is optimized for DevOps workflows,
   enhancing your efficiency in tasks related to infrastructure, automation, and
@@ -43,7 +45,7 @@ images).
   programming languages such as Bash, Deno, Go, JSON, Nix, Python, Terraform,
   TypeScript, etc., this configuration has you covered.
 
-## 🛒 Plugins
+## Plugins
 
 - ⚙️ **Core**
   - A modern plugin manager for Neovim
@@ -93,51 +95,66 @@ images).
 - ⛏️ External
   - Conventional commits [cocogitto](https://github.com/cocogitto/cocogitto)
 
-## 💬 **Language support**
+## Language support
 
-You can enable or disable support for a language by editing the `flake.nix`
-file. The below table show the languages fully supporter (LSP, highlighting,
-format, lint/diagnostic, completion, action).
+To add or remove a language, you need to modify the following files:
 
-### 🏆 Fully supported
+- `flake.nix`
+- `lua/config/options.lua`
+- `lua/plugins/code/conform.lua`
+- `lua/plugins/code/lspconfig.lua`
+- `lua/plugins/code/nvim-lint.lua`
+- `lua/plugins/code/treesitter.lua`
+- `lua/plugins/editor/filetype.lua`
 
-| Language   | LSP | HL | FO | Lint | cmp | CA | Plugins                                      |
-| ---------- | --- | -- | -- | ---- | --- | -- | -------------------------------------------- |
-| deno       | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                           |
-| javascript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                           |
-| dockerfile | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (dockerls)                         |
-| lua        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (lua_ls)                           |
-| markdown   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (marksman),node-ls(markdownlint)   |
-| nix        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (nixd, nil_ls, rnix)               |
-| openscad   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (openscad-lsp)                     |
-| python     | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (pyright,ruff_lsp), node-ls(black) |
-| scala      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (metals)                           |
-| shell      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (bashls), none-ls(shellharden)     |
-| typescript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                           |
+Language marketplace list:
 
-### 🌓 Partily supported
+- [conform.nvim](https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters)
+- [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+- [nvim-lint](https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages)
 
-| Language       | LSP | HL | FO | Lint | cmp | CA | Plugins                           |
-| -------------- | --- | -- | -- | ---- | --- | -- | --------------------------------- |
-| ansible        | ✔️   | ✔️  | ❌ | ✔️    | ❌  | 🔳 | ansiblels, ansible-lint           |
-| diagram        | 🔳  | ❌ | ❌ | ❌   | 🔳  | 🔳 | venn                              |
-| docker-compose | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                              |
-| gnuplot        | 🔳  | ✔️  | 🔳 | 🔳   | 🔳  | 🔳 | Use filetype.nvim type detection  |
-| go             | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                              |
-| json           | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)   |
-| justfile       | ❌  | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)   |
-| ledger         | ❌  | ✔️  | ❌ | ❌   | ❌  | ❌ | vim-just                          |
-| lua            | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | luacheck, selene, stylua          |
-| makefile       | 🔳  | ✔️  | ❌ | ✔️    | ❌  | 🔳 | checkmake                         |
-| markdown table | 🔳  | ❌ | ✔️  | ❌   | 🔳  | 🔳 | vim-table-mode                    |
-| terraform      | ✔️   | ✔️  | ✔️  | 🔳   | ✔️   | 🔳 | lspconfig(terraform, terraform-ls |
-| vim            | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                              |
-| yaml           | ✔️   | ✔️  | ❌ | ✔️    | ❌  | ❌ | efm(yamlint,prettier)             |
+The below table show the languages fully supporter (LSP, highlighting, format,
+lint/diagnostic, completion, action).
+
+### Fully supported
+
+| Language   | LSP | HL | FO | Lint | cmp | CA | Plugins                                                          |
+| ---------- | --- | -- | -- | ---- | --- | -- | ---------------------------------------------------------------- |
+| deno       | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                                               |
+| javascript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                                               |
+| dockerfile | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (dockerls)                                             |
+| lua        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (lua_ls)                                               |
+| markdown   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (marksman), nvim-lint(markdownlint), conform(deno_fmt) |
+| nix        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (nixd, nil_ls)                                         |
+| openscad   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (openscad-lsp)                                         |
+| python     | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (ruff_lsp)                                             |
+| scala      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (metals)                                               |
+| shell      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (bashls), conform(shellharden)                         |
+| terraform  | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig(terraform, terraform-ls                                |
+| typescript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                                               |
+| yaml       | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig(yamlls)                                                |
+
+### Partily supported
+
+| Language       | LSP | HL | FO | Lint | cmp | CA | Plugins                          |
+| -------------- | --- | -- | -- | ---- | --- | -- | -------------------------------- |
+| ansible        | ✔️   | ✔️  | ❌ | ✔️    | ❌  | 🔳 | ansiblels, ansible-lint          |
+| diagram        | 🔳  | ❌ | ❌ | ❌   | 🔳  | 🔳 | venn                             |
+| docker-compose | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                             |
+| gnuplot        | 🔳  | ✔️  | 🔳 | 🔳   | 🔳  | 🔳 | Use filetype.nvim type detection |
+| go             | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                             |
+| json           | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)  |
+| justfile       | ❌  | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)  |
+| ledger         | ❌  | ✔️  | ❌ | ❌   | ❌  | ❌ | vim-just                         |
+| lua            | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | luacheck, selene, stylua         |
+| makefile       | 🔳  | ✔️  | ❌ | ✔️    | ❌  | 🔳 | checkmake                        |
+| vim            | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                             |
 
 **Legend :**
 `LSP-Language Server Protocol / HL-Highlight / FO-Format / CA-Code Action`
 
-## ⌨️ keybinding
+## keybinding
 
 Main keybinding with `<leader>` key :
 
@@ -152,7 +169,7 @@ Main keybinding with `<leader>` key :
 | **u** | User      |
 | **!** | Terminal  |
 
-## 🎮 Try
+## Try
 
 You can use this configuration with neovim >= 0.8.0
 
@@ -177,11 +194,11 @@ make check
 nvim
 ```
 
-### Try on your distribution
+### Try on your distribution with nix
 
 Before installing vide in your distribution, you must install & configure nix.
 
-#### 1) Select nix installation from your distribution
+#### 1) Select nix installation
 
 | Distribution | Installation command                            |
 | ------------ | ----------------------------------------------- |
@@ -210,7 +227,7 @@ make check
 make try-nvim
 ```
 
-## ⛏️ Installation
+## Installation
 
 **Warning**: That replace your current nvim configuration, your current
 configuration is backuped
@@ -224,9 +241,7 @@ make check
 nvim
 ```
 
-## 💻
-
-Available commands
+## Available commands
 
 ```text
 check          Check requirements installation
@@ -237,20 +252,16 @@ help           This help
 try-nvim       Try nvim without update your current nvim configuration
 ```
 
-### ✔️ TODO
+### TODO
 
 - **vide**
-
   - [ ] Define `lazy` & `event` option for all plugins
   - [ ] Add markdown preview keybinding on `<leader>mm` or `<leader>mp`
-
 - search plugins for :
-
   - [ ] todo or org alternative
   - [ ] [vim-sops](https://github.com/jsecchiero/vim-sops/tree/main)
-
 - try
-  - [ ] [refactoring with nulls](ThePrimeagen/refactoring)
+  - [ ] legendary.nvim
   - [ ] neorg
   - [ ] ALE
   - [ ] vimwiki

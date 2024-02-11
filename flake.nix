@@ -1,6 +1,7 @@
 {
   description = "A Nix-flake-based vide project development environment";
 
+  # 'github:NixOS/nixpkgs/79a13f1437e149dc7be2d1290c74d378dad60814' (2024-02-03)
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   # inputs.nixpkgs.url = "path:/home/badele/ghq/github.com/badele/fork-nixpkgs";
 
@@ -13,6 +14,7 @@
       bash_support = true;
       deno_support = true;
       dockerfile_support = true;
+      javascript_support = true;
       json_support = true;
       ledger_support = true;
       lua_support = true;
@@ -36,8 +38,7 @@
               config.allowUnfree = true; # For terraform
             };
           });
-    in
-    {
+    in {
       devShells = forEachSupportedSystem ({ pkgs }:
         let
           ###########################################################################
@@ -46,6 +47,7 @@
           ansible_packages = with pkgs; [ ansible-lint ];
 
           bash_packages = with pkgs; [
+            beautysh
             nodePackages.bash-language-server
             shellcheck
             shellharden
@@ -57,8 +59,10 @@
           dockerfile_packages = with pkgs;
             [ nodePackages.dockerfile-language-server-nodejs ];
 
+          javascript_packages = with pkgs; [ nodePackages.eslint ];
+
           json_packages = with pkgs; [
-            nodePackages.vscode-json-languageserver
+            vscode-langservers-extracted
             nodePackages.fixjson
             nodePackages.jsonlint
           ];
@@ -82,6 +86,7 @@
           markdown_packages = with pkgs; [
             marksman
             nodePackages.markdownlint-cli
+            python311Packages.mdformat
           ];
 
           nix_packages = with pkgs; [
@@ -100,9 +105,16 @@
 
           python_packages = with pkgs; [
             ruff
-            semgrep
             nodePackages.pyright
-            (python3.withPackages (ps: with ps; [ ruff-lsp ]))
+            (python3.withPackages (ps:
+              with ps; [
+                pycodestyle
+                pydocstyle
+                pylint
+                ruff-lsp
+                mypy
+                vulture
+              ]))
           ];
 
           scala_packages = with pkgs; [ sbt metals ];
@@ -111,9 +123,8 @@
 
           typescript_packages = with pkgs; [ deno ];
 
-          yaml_packages = with pkgs; [ yamlfmt yamllint ];
-        in
-        with pkgs;
+          yaml_packages = with pkgs; [ yaml-language-server ];
+        in with pkgs;
         with lib; {
           default = pkgs.mkShell {
             shellHook = ''
@@ -121,6 +132,7 @@
               export VIDE_BASH_SUPPORT=${boolToString bash_support}
               export VIDE_DENO_SUPPORT=${boolToString deno_support}
               export VIDE_DOCKERFILE_SUPPORT=${boolToString dockerfile_support}
+              export VIDE_JAVASCRIPT_SUPPORT=${boolToString javascript_support}
               export VIDE_JSON_SUPPORT=${boolToString json_support}
               export VIDE_LUA_SUPPORT=${boolToString lua_support}
               export VIDE_LEDGER_SUPPORT=${boolToString ledger_support}
@@ -168,6 +180,7 @@
               ++ optionals bash_support bash_packages
               ++ optionals deno_support deno_packages
               ++ optionals dockerfile_support dockerfile_packages
+              ++ optionals javascript_support javascript_packages
               ++ optionals json_support json_packages
               ++ optionals ledger_support ledger_packages
               ++ optionals lua_support lua_packages

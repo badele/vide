@@ -1,0 +1,3 @@
+return {
+	{ "NoahTheDuke/vim-just" },
+}

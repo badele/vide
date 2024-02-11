@@ -20,5 +20,10 @@ docker-build: check-DISTRIB ## Build <DISTRIB> docker image
 docker-run: check-DISTRIB docker-build ## Run <DISTRIB> docker image
 	@docker/run ${DISTRIB}
 
+clean-cache: ## Clean nvim cache configuration
+	@rm -rf ~/.local/share/nvim
+	@rm -rf ~/.local/state/nvim
+	@rm -rf ~/.cache/nvim
+
 try-nvim: ## Try nvim without update your current nvim configuration
 	@nix develop --command bash -c "NVIM_APPNAME="vide" nvim"

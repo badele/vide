@@ -1,5 +1,6 @@
+--  WARN: The leader must be define here, it's used for other plugins
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = ";"
 
 -- Disable provider
 vim.g.loaded_perl_provider = 0
@@ -24,13 +25,13 @@ opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 3         -- Force to show global line, used by lualine
 opt.list = true            -- Show some invisible characters (tabs...
 opt.listchars = {
-	tab      = ">>",
+	tab = ">>",
 	-- lead     = ".",
-	trail    = "󰅨",
+	trail = "󰅨",
 	precedes = "←",
-	extends  = "→",
-	eol      = "⤶",
-	nbsp     = "␣",
+	extends = "→",
+	eol = "⤶",
+	nbsp = "␣",
 }
 
 opt.mouse = "a"                                         -- Enable mouse mode
@@ -45,8 +46,7 @@ opt.shiftwidth = 2                                      -- Size of an indent
 opt.shortmess:append({ W = false, I = true, c = true }) -- Hide some messages
 opt.showmode = false                                    -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8                                   -- Columns of context
-opt.signcolumn =
-"yes"                                                   -- Always show the signcolumn, otherwise it would shift the text each time
+opt.signcolumn = "yes"                                  -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true                                    -- Don't ignore case with capitals
 opt.smartindent = true                                  -- Insert indents automatically
 opt.spelllang = { "en" }
@@ -63,8 +63,31 @@ opt.winminwidth = 5                -- Minimum window width
 opt.wrap = false                   -- Disable line wrap
 
 -- Define comment by filetype (commentstring)
-local ft = require('Comment.ft')
-ft.openscad = { '//%s', '/*%s*/' }
+--local ft = require("Comment.ft")
+--ft.openscad = { "//%s", "/*%s*/" }
+
+vim.markdown_fenced_languages = {
+	"bash",
+	"comment",
+	"dockerfile",
+	"go",
+	"json",
+	"jsonc",
+	"lua",
+	"markdown",
+	"markdown_inline",
+	"nix",
+	"python",
+	"query",
+	"regex",
+	"scala",
+	"terraform",
+	"typescript",
+	"ts:typescript",
+	"vim",
+	"vimdoc",
+	"yaml",
+}
 
 -- if vim.fn.has("nvim-0.9.0") == 1 then
 -- 	opt.splitkeep = "screen"
