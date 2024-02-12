@@ -11,13 +11,11 @@ return {
 				javascript = {}, -- denols
 				json = { "deno_fmt" },
 				lua = {},    --lua_ls
-				markdown = { "deno_fmt" },
 				nix = { "nixfmt" },
 				openscad = {}, -- openscad_lsp
 				python = {}, -- ruff_lsp
-				scala = {}, -- metals
+				scala = {},  -- metals
 				sh = { "shellharden" },
-				-- terraform = { "terraform_fmt" },
 				typescript = {}, -- denols
 				yaml = {}    -- yamlls,
 

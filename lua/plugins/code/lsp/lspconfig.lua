@@ -34,10 +34,8 @@ return {
 		lspconfig["html"].setup(opts)
 		lspconfig["jsonls"].setup(opts)
 		lspconfig["openscad_lsp"].setup(opts)
-		lspconfig["marksman"].setup(opts) -- WARN: the TOC action only showed if documentation section change !!
 		lspconfig["nixd"].setup(opts)
 		lspconfig["nil_ls"].setup(opts)
-		lspconfig["terraformls"].setup(opts)
 		lspconfig["cssls"].setup(opts)
 		lspconfig["metals"].setup(opts) -- scala
 		lspconfig["ruff_lsp"].setup(opts) -- python
