@@ -6,10 +6,7 @@ return {
 
 		lint.linters_by_ft = {
 			sh = {},      -- bashls
-			javascript = {}, -- denols
-			typescript = {}, -- denols
 			lua = {},     -- lua_ls
-			markdown = { "markdownlint" },
 			openscad = {}, -- openscad_lsp
 			python = {},  -- ruff_lsp
 			scala = {},   -- metals

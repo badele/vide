@@ -2,7 +2,7 @@
 -- test
 return {
 	"nvim-lualine/lualine.nvim",
-	deps = {
+	dependencies = {
 		"jonahgoldwastaken/copilot-status.nvim",
 		"SmiteshP/nvim-navic",
 
@@ -43,7 +43,6 @@ return {
 						}
 					},
 					{ "encoding" },
-					{ "filetype" },
 					{
 						"filename",
 						path = 1,
@@ -59,6 +58,7 @@ return {
 				},
 
 				lualine_x = {
+					{ "filetype" },
 					copilot_status,
 					{
 						function() return require("noice").api.status.command.get() end,

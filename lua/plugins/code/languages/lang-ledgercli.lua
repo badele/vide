@@ -1,3 +1,0 @@
-return {
-	{ "ledger/vim-ledger" },
-}
