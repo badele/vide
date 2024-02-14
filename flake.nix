@@ -38,7 +38,8 @@
               config.allowUnfree = true; # For terraform
             };
           });
-    in {
+    in
+    {
       devShells = forEachSupportedSystem ({ pkgs }:
         let
           ###########################################################################
@@ -47,10 +48,8 @@
           ansible_packages = with pkgs; [ ansible-lint ];
 
           bash_packages = with pkgs; [
-            beautysh
             nodePackages.bash-language-server
             shellcheck
-            shellharden
             shfmt
           ];
 
@@ -124,7 +123,8 @@
           typescript_packages = with pkgs; [ deno ];
 
           yaml_packages = with pkgs; [ yaml-language-server ];
-        in with pkgs;
+        in
+        with pkgs;
         with lib; {
           default = pkgs.mkShell {
             shellHook = ''
