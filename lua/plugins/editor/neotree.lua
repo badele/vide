@@ -42,7 +42,7 @@ return {
 			})
 		end,
 		keys = {
-			{ "<leader>ee", "<cmd>lua require('neo-tree.command').execute({ toggle = true, dir = vim.loop.cwd() })<cr>", desc = "Toogle files explorer" },
+			{ "<leader>tf", "<cmd>lua require('neo-tree.command').execute({ toggle = true, dir = vim.loop.cwd() })<cr>", desc = "Toogle files explorer" },
 		}
 	},
 }

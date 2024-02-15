@@ -87,7 +87,7 @@ return {
 			},
 		})
 	end,
-	keys = {
-		{ "<leader>;", "<cmd>Dashboard<cr>", desc = "Dashboard" },
-	},
+	-- keys = {
+	-- 	{ "<leader>;", "<cmd>Dashboard<cr>", desc = "Dashboard" },
+	-- },
 }

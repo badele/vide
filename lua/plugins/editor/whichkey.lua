@@ -86,21 +86,22 @@ return {
 
 		local wk = require("which-key")
 		wk.register({
-				c = { name = "Code" },
-				e = { name = "Editor" },
-				f = { name = "Find" },
-				g = { name = "Go to" },
-				l = { name = "LSP" },
-				m = { name = "Misc" },
-				md = { name = "[M]isc [D]ebug" },
-				-- mt = { name = "[T]ranslate" },
-				s = { name = "Search" },
-				t = { name = "Table" },
-				u = { name = "User" },
-				x = { name = "Diagnostic" },
-				["!"] = { name = "[!]TTY" },
-			},
-			{ prefix = "<leader>" }
+			-- Primary actions
+			["<leader>c"] = { name = "Code" },
+			["<leader>e"] = { name = "Editor" },
+			["<leader>f"] = { name = "Find" },
+			["<leader>g"] = { name = "Go to" },
+			["<leader>l"] = { name = "LSP" },
+			["<leader>m"] = { name = "Misc" },
+			["<leader>md"] = { name = "[M]isc [D]ebug" },
+			-- mt = { name = "[T]ranslate" },
+			["<leader>s"] = { name = "Search" },
+			["<leader>t"] = { name = "Toggle" },
+			["<leader>u"] = { name = "User" },
+			["<leader>x"] = { name = "Diagnostic" },
+			-- Second actions
+			-- ["!"] = { name = "[!]TTY" },
+		}
 		)
 	end,
 }

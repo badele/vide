@@ -33,7 +33,7 @@ images).
 <!--toc:end-->
 
 ![dashboard](./doc/img/plug_dashboard.png)
-![neotree-symbolsoutline](./doc/img/plug_neotree_symbolsoutline.png)
+![outline](./doc/img/plug_neotree_symbolsoutline.png)
 ![telescope](./doc/img/plug_telescope.png) ![git](./doc/img/plug_lazygit.png)
 
 ## Features
@@ -54,7 +54,7 @@ images).
     [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
   - Folder & code visualiser
     [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim),
-    [symbols-outline](https://github.com/simrat39/symbols-outline.nvim)
+    [outline](https://github.com/hedyhli/outline.nvim)
   - Completion engine [cmp](https://github.com/hrsh7th/nvim-cmp)
   - Notification [noice](https://github.com/folke/noice.nvim)
   - Find, Filter, Preview, Pick
