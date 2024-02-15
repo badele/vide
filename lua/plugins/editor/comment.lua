@@ -26,4 +26,9 @@ return {
 		pre_hook = nil,
 		post_hook = nil,
 	},
+	config = function(_, opts)
+		require("Comment").setup(opts)
+		local ft = require("Comment.ft")
+		ft.openscad = { "//%s", "/*%s*/" }
+	end
 }
