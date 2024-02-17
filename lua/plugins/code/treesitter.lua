@@ -30,4 +30,7 @@ return {
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)
 	end,
+	keys = {
+		{ "<leader>it", "<cmd>TSInstallInfo<CR>", desc = "Treesitter info" },
+	},
 }

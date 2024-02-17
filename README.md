@@ -121,34 +121,34 @@ lint/diagnostic, completion, action).
 
 | Language   | LSP | HL | FO | Lint | cmp | CA | Plugins                                                          |
 | ---------- | --- | -- | -- | ---- | --- | -- | ---------------------------------------------------------------- |
-| deno       | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                                               |
-| javascript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                                               |
-| dockerfile | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (dockerls)                                             |
-| lua        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (lua_ls)                                               |
-| markdown   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (marksman), nvim-lint(markdownlint), conform(deno_fmt) |
-| nix        | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (nixd, nil_ls)                                         |
-| openscad   | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (openscad-lsp)                                         |
-| python     | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (ruff_lsp)                                             |
-| scala      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (metals)                                               |
-| shell      | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (bashls), conform(shellharden)                         |
-| terraform  | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig(terraform, terraform-ls                                |
-| typescript | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig (denols)                                               |
-| yaml       | ✔️   | ✔️  | ✔️  | ✔️    | ✔️   | ✔️  | lspconfig(yamlls)                                                |
+| deno       | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (denols)                                               |
+| javascript | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (denols)                                               |
+| dockerfile | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (dockerls)                                             |
+| lua        | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (lua_ls)                                               |
+| markdown   | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (marksman), nvim-lint(markdownlint), conform(deno_fmt) |
+| nix        | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (nixd, nil_ls)                                         |
+| openscad   | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (openscad-lsp)                                         |
+| python     | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (ruff_lsp)                                             |
+| scala      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (metals)                                               |
+| shell      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (bashls), conform(shellharden)                         |
+| terraform  | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig(terraform, terraform-ls                                |
+| typescript | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (denols)                                               |
+| yaml       | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig(yamlls)                                                |
 
 ### Partily supported
 
 | Language       | LSP | HL | FO | Lint | cmp | CA | Plugins                          |
 | -------------- | --- | -- | -- | ---- | --- | -- | -------------------------------- |
-| ansible        | ✔️   | ✔️  | ❌ | ✔️    | ❌  | 🔳 | ansiblels, ansible-lint          |
+| ansible        | ✅  | ✅ | ❌ | ✅   | ❌  | 🔳 | ansiblels, ansible-lint          |
 | diagram        | 🔳  | ❌ | ❌ | ❌   | 🔳  | 🔳 | venn                             |
 | docker-compose | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                             |
-| gnuplot        | 🔳  | ✔️  | 🔳 | 🔳   | 🔳  | 🔳 | Use filetype.nvim type detection |
+| gnuplot        | 🔳  | ✅ | 🔳 | 🔳   | 🔳  | 🔳 | Use filetype.nvim type detection |
 | go             | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                             |
-| json           | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)  |
-| justfile       | ❌  | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)  |
-| ledger         | ❌  | ✔️  | ❌ | ❌   | ❌  | ❌ | vim-just                         |
-| lua            | ✔️   | ✔️  | ✔️  | ✔️    | 🔳  | 🔳 | luacheck, selene, stylua         |
-| makefile       | 🔳  | ✔️  | ❌ | ✔️    | ❌  | 🔳 | checkmake                        |
+| json           | ✅  | ✅ | ✅ | ✅   | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)  |
+| justfile       | ❌  | ✅ | ✅ | ✅   | 🔳  | 🔳 | lspconfig(jsonls), efm(fixjson)  |
+| ledger         | ❌  | ✅ | ❌ | ❌   | ❌  | ❌ | vim-just                         |
+| lua            | ✅  | ✅ | ✅ | ✅   | 🔳  | 🔳 | luacheck, selene, stylua         |
+| makefile       | 🔳  | ✅ | ❌ | ✅   | ❌  | 🔳 | checkmake                        |
 | vim            | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                             |
 
 **Legend :**

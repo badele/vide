@@ -83,4 +83,7 @@ return {
       },
     })
   end,
+  keys = {
+    { "<leader>ic", "<cmd>CmpStatus<CR>", desc = "Completion info" },
+  },
 }

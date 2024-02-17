@@ -15,26 +15,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	pattern = "*",
--- 	callback = function(args)
--- 		require("conform").format({ lsp_fallback = true, bufnr = args.buf })
--- 	end,
--- })
---
---vim.api.nvim_create_autocmd("LspAttach", {
---	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
---	callback = require("core.lsp_on_attach"),
---})
+vim.api.nvim_create_autocmd("InsertEnter", {
+	callback = function()
+		-- vim.api.nvim_set_hl(0, "Normal", { bg = "#202232" })
+		vim.cmd.highlight("ColorColumn guibg=#1b292b")
+	end
+})
 
--- vim.api.nvim_create_autocmd("InsertEnter", {
--- 	callback = function()
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "#202232" })
--- 	end
--- })
---
--- vim.api.nvim_create_autocmd("InsertLeave", {
--- 	callback = function()
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "#222436" })
--- 	end
--- })
+vim.api.nvim_create_autocmd("InsertLeave", {
+	callback = function()
+		vim.cmd.highlight("ColorColumn guibg=#1b1d2b")
+		-- vim.api.nvim_set_hl(0, "Normal", { bg = "#222436" })
+	end
+})

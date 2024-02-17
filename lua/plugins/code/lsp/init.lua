@@ -14,9 +14,11 @@ return {
 	keys = {
 		-- Add this keys (minimal one key) for showing all lsp keys on main whichkey menu
 		{ "<leader>ls", "<cmd>LspRestart<CR>", desc = "LSP Restart LSP server" },
+		-- info
+		{ "<leader>il", "<cmd>LspInfo<CR>",    desc = "LSP info" },
 	},
 
-	config = function(_,opts)
+	config = function(_, opts)
 		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local icons = require("config.icons")

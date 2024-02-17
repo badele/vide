@@ -90,10 +90,18 @@ return {
 			["<leader>c"] = { name = "Code" },
 			["<leader>e"] = { name = "Editor" },
 			["<leader>f"] = { name = "Find" },
-			["<leader>g"] = { name = "Go to" },
+
+			-- info
+			["<leader>i"] = {
+				name = "Info",
+				h = { "<cmd>checkhealth<cr>", "Healthcheck info" },
+				z = { "<cmd>Lazy<cr>", "Lazy info" },
+			},
+
+			["<leader>g"] = { name = "Git" },
 			["<leader>l"] = { name = "LSP" },
 			["<leader>m"] = { name = "Misc" },
-			["<leader>md"] = { name = "[M]isc [D]ebug" },
+			-- ["<leader>md"] = { name = "[M]isc [D]ebug" },
 			-- mt = { name = "[T]ranslate" },
 			["<leader>s"] = { name = "Search" },
 			["<leader>t"] = { name = "Toggle" },
