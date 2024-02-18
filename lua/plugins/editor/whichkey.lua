@@ -104,7 +104,13 @@ return {
 			-- ["<leader>md"] = { name = "[M]isc [D]ebug" },
 			-- mt = { name = "[T]ranslate" },
 			["<leader>s"] = { name = "Search" },
-			["<leader>t"] = { name = "Toggle" },
+			["<leader>t"] = {
+
+				name = "Toggle",
+				r = { "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>", "Disable search highlight" },
+				c = { "<Cmd>set conceallevel=0<cr>", "Disable conceal" },
+				C = { "<Cmd>set conceallevel=3<cr>", "Enable conceal" },
+			},
 			["<leader>u"] = { name = "User" },
 			["<leader>x"] = { name = "Diagnostic" },
 			-- Second actions

@@ -73,13 +73,13 @@ The neovim ide is made up of the following tools:
 <leader>u        User Interface
   <leader>un   Dismiss all Notificationsn
   <leader>ui   Inspect Pos
-  <leader>uc   Toggle Concealn
-  <leader>ud   Toggle Diagnosticsn
-  <leader>ul   Toggle Line Numbersn
-  <leader>uw   Toggle Word Wrapn
-  <leader>us   Toggle Spellingn
-  <leader>uf   Toggle format on Saven
-  <leader>ur   Redraw / clear hlsearch / diff updaten
+  <leader>tc   Toggle Conceal
+  <leader>ud   Toggle Diagnostics
+  <leader>ul   Toggle Line Numbers
+  <leader>uw   Toggle Word Wrap
+  <leader>us   Toggle Spelling
+  <leader>uf   Toggle format on Save
+  <leader>tr   Redraw / clear hlsearch / diff update
   <leader>uC   Colorscheme with preview
 
 <leader><Tab>   Bufferline tabs
