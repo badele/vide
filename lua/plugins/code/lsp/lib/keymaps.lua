@@ -38,7 +38,7 @@ return function(_, bufnr)
 	map("n", "<leader>lp", vim.diagnostic.goto_prev, opts)
 
 	opts.desc = "LSP show documentation for what is under cursor"
-	map("n", "K", vim.lsp.buf.hover, opts)
+	map("n", "<leader>cH", vim.lsp.buf.hover, opts)
 
 	opts.desc = "LSP show Info"
 	map("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
