@@ -6,7 +6,7 @@ return {
 	keys = {
 		{ "<leader>cd", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document diagnostics" },
 		{ "<leader>cD", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
-		{ "<leader>ch", "<cmd>lua vim.diagnostic.open_float()<cr>",     desc = "Hint Diagnostics" },
+		{ "<leader>cH", "<cmd>lua vim.diagnostic.open_float()<cr>",     desc = "Hint Diagnostics" },
 		{ "<leader>cl", "<cmd>TroubleToggle loclist<cr>",               desc = "Location List" },
 		{ "<leader>cq", "<cmd>TroubleToggle quickfix<cr>",              desc = "Quickfix List" },
 
