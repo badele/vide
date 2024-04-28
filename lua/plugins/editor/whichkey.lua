@@ -113,6 +113,11 @@ return {
 			},
 			["<leader>u"] = { name = "User" },
 			["<leader>x"] = { name = "Diagnostic" },
+
+			-- Locallear (tools)
+			["<localleader>m"] = { name = "Markdown" },
+			["<localleader>l"] = { name = "Latex" },
+
 			-- Second actions
 			-- ["!"] = { name = "[!]TTY" },
 		}

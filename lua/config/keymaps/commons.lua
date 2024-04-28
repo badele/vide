@@ -20,7 +20,7 @@ local map = require("core.utils").map
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", "Save file (VS)")
 map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Show tt[Y] terminal", remap = true })
 map({ "n" }, "<M-q>", "<cmd>bdelete<cr>", { desc = "Close buffer", remap = true })
-map({ "n" }, "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true })
+map({ "n" }, "<localleader>mp", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true })
 map(
 	{ "n" },
 	"<leader>mdl",

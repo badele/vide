@@ -53,5 +53,6 @@
   "vim-just": { "branch": "main", "commit": "504ac9a8d2860fd1cc40879a6ecbff20843c708e" },
   "vim-ledger": { "branch": "master", "commit": "281346a221434574dd7f8767a352b2bf0b218b74" },
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" },
+  "vimtex": { "branch": "master", "commit": "7845b5d22931b20b7733a07bba670187db55cae0" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }

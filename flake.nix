@@ -17,6 +17,7 @@
       javascript_support = true;
       json_support = true;
       ledger_support = true;
+      tex_support = true;
       lua_support = true;
       make_support = true;
       markdown_support = true;
@@ -67,6 +68,8 @@
           ];
 
           ledger_packages = with pkgs; [ ledger hledger ];
+
+          tex_packages = with pkgs; [ texliveMedium pplatex texlab zathura ];
 
           lua_packages = with pkgs; [
             # LSP
@@ -134,6 +137,7 @@
               export VIDE_DOCKERFILE_SUPPORT=${boolToString dockerfile_support}
               export VIDE_JAVASCRIPT_SUPPORT=${boolToString javascript_support}
               export VIDE_JSON_SUPPORT=${boolToString json_support}
+              export VIDE_TEX_SUPPORT=${boolToString tex_support}
               export VIDE_LUA_SUPPORT=${boolToString lua_support}
               export VIDE_LEDGER_SUPPORT=${boolToString ledger_support}
               export VIDE_MAKE_SUPPORT=${boolToString make_support}
@@ -183,6 +187,7 @@
               ++ optionals javascript_support javascript_packages
               ++ optionals json_support json_packages
               ++ optionals ledger_support ledger_packages
+              ++ optionals tex_support tex_packages
               ++ optionals lua_support lua_packages
               ++ optionals make_support make_packages
               ++ optionals markdown_support markdown_packages

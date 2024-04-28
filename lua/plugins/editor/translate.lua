@@ -17,10 +17,14 @@ return {
 			})
 
 			local opts = { noremap = true, silent = true, expr = true }
-			vim.keymap.set("n", "<leader>mt", function()
+
+			opts.desc = "Translate the current line"
+			vim.keymap.set("n", "<localleader>t", function()
 				return pantran.motion_translate() .. "_"
 			end, opts)
-			vim.keymap.set("x", "<leader>mt", pantran.motion_translate, opts)
+
+			opts.desc = "Translate the current visual selection"
+			vim.keymap.set("x", "<localleader>t", pantran.motion_translate, opts)
 		end,
 	},
 }
