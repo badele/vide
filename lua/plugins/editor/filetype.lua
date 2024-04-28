@@ -11,6 +11,7 @@ return {
 					tf = "terraform",
 					justfile = "just",
 					scad = "openscad",
+					tex = "tex",
 				},
 			},
 		},

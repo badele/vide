@@ -132,6 +132,7 @@ lint/diagnostic, completion, action).
 | scala      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (metals)                                               |
 | shell      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (bashls), conform(shellharden)                         |
 | terraform  | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig(terraform, terraform-ls                                |
+| tex/latex  | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | vimtex, lspconfig(texlab)                                        |
 | typescript | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (denols)                                               |
 | yaml       | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig(yamlls)                                                |
 
