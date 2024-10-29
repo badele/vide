@@ -141,6 +141,7 @@ lint/diagnostic, completion, action).
 | Language       | LSP | HL | FO | Lint | cmp | CA | Plugins                          |
 | -------------- | --- | -- | -- | ---- | --- | -- | -------------------------------- |
 | ansible        | ✅  | ✅ | ❌ | ✅   | ❌  | 🔳 | ansiblels, ansible-lint          |
+| d2             | ❌  | ✅ | ✅ | ❌   | ❌  | ❌ | d2-vim                           |
 | diagram        | 🔳  | ❌ | ❌ | ❌   | 🔳  | 🔳 | venn                             |
 | docker-compose | 🔳  | 🔳 | 🔳 | 🔳   | 🔳  | 🔳 | TODO                             |
 | gnuplot        | 🔳  | ✅ | 🔳 | 🔳   | 🔳  | 🔳 | Use filetype.nvim type detection |

@@ -12,6 +12,7 @@
       ###########################################################################
       ansible_support = true;
       bash_support = true;
+      d2_support = true;
       deno_support = true;
       dockerfile_support = true;
       javascript_support = true;
@@ -54,6 +55,8 @@
             shfmt
           ];
 
+          d2_packages = with pkgs; [ d2 ];
+
           deno_packages = with pkgs; [ deno ];
 
           dockerfile_packages = with pkgs;
@@ -69,7 +72,16 @@
 
           ledger_packages = with pkgs; [ ledger hledger ];
 
-          tex_packages = with pkgs; [ texliveMedium pplatex texlab zathura ];
+          # Latex
+          tex_packages = with pkgs; [
+            (texlive.combine {
+              inherit (texlive)
+                scheme-medium tabularray ninecolors msg lipsum pgf;
+            })
+            pplatex
+            texlab
+            zathura
+          ];
 
           lua_packages = with pkgs; [
             # LSP
@@ -133,6 +145,7 @@
             shellHook = ''
                 export VIDE_ANSIBLE_SUPPORT=${boolToString ansible_support}
               export VIDE_BASH_SUPPORT=${boolToString bash_support}
+              export VIDE_D2_SUPPORT=${boolToString d2_support}
               export VIDE_DENO_SUPPORT=${boolToString deno_support}
               export VIDE_DOCKERFILE_SUPPORT=${boolToString dockerfile_support}
               export VIDE_JAVASCRIPT_SUPPORT=${boolToString javascript_support}
@@ -182,6 +195,7 @@
                 nodePackages.prettier
               ] ++ optionals ansible_support ansible_packages
               ++ optionals bash_support bash_packages
+              ++ optionals d2_support d2_packages
               ++ optionals deno_support deno_packages
               ++ optionals dockerfile_support dockerfile_packages
               ++ optionals javascript_support javascript_packages

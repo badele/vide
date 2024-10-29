@@ -61,6 +61,11 @@ if [ "$VIDE_BASH_SUPPORT" == "true" ]; then
 	checkTools "shellharden"
 fi
 
+if [ "$VIDE_D2_SUPPORT" == "true" ]; then
+	header "d2 support"
+	checkTools "d2"
+fi
+
 if [ "$VIDE_JSON_SUPPORT" == "true" ]; then
 	header "JSON support"
 	checkTools "fixjson"

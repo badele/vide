@@ -4,7 +4,7 @@ local function formatBuffer(bufnr)
 	-- if bufnr is not provided, it will format the current buffer
 	local opts = {
 		bufnr = bufnr,
-		timeout_ms = 1000,
+		timeout_ms = 3000,
 		async = false,
 		quiet = false,
 		lsp_fallback = true,
