@@ -48,9 +48,10 @@ images).
 ## Plugins
 
 - ⚙️ **Core**
+  - **Neovim 0.10.x**
   - A modern plugin manager for Neovim
     [Lazy](https://github.com/folke/lazy.nvim)
-  - Icons package
+  - Icons package [mini.icons](https://github.com/echasnovski/mini.icons),
     [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
   - Folder & code visualiser
     [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim),

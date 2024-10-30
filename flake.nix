@@ -111,7 +111,6 @@
             nil
             nixfmt
             nixpkgs-fmt
-            rnix-lsp
             statix
           ];
 
@@ -119,7 +118,6 @@
 
           python_packages = with pkgs; [
             ruff
-            nodePackages.pyright
             (python3.withPackages (ps:
               with ps; [
                 pycodestyle

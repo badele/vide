@@ -18,24 +18,25 @@ local map = require("core.utils").map
 -- Misc
 ------------------------------------------------------------------------------
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", "Save file (VS)")
-map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Show tt[Y] terminal", remap = true })
-map({ "n" }, "<M-q>", "<cmd>bdelete<cr>", { desc = "Close buffer", remap = true })
-map({ "n" }, "<localleader>mp", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown preview", remap = true })
+map({ "n", "i", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", "Show tt[Y] terminal", { remap = true })
+map({ "n" }, "<M-q>", "<cmd>bdelete<cr>", "Close buffer", { remap = true })
+map({ "n" }, "<localleader>mp", "<cmd>MarkdownPreview<cr>", "[M]arkdown preview", { remap = true })
 map(
 	{ "n" },
 	"<leader>mdl",
 	"<cmd>lua print(vim.inspect(vim.lsp.get_active_clients()))<cr>",
-	{ desc = "[M]isc [D]ebug show active [L]SP", remap = true }
+	"[M]isc [D]ebug show active [L]SP",
+  { remap = true }
 )
 
 -- Custom help
-map({ "n", "i", "v", "x" }, "<F1>", "<cmd>help Vide<cr>", { desc = "Show VIDE help" })
-map({ "n", "i", "v", "x" }, "<F13>", "<cmd>helptags ~/.config/nvim/doc<cr>", { desc = "Refresh VIDE helptags" })
-map({ "n" }, "<K>", "<C-]", { desc = "Goto help anchor" })
+map({ "n", "i", "v", "x" }, "<F1>", "<cmd>help Vide<cr>", "Show VIDE help", { })
+map({ "n", "i", "v", "x" }, "<F13>", "<cmd>helptags ~/.config/nvim/doc<cr>", "Refresh VIDE helptags", { })
+map({ "n" }, "<K>", "<C-]", "Goto help anchor", { })
 
 -- Indent
-map("v", ">", ">gv", { desc = "Indent >" })
-map("v", "<", "<gv", { desc = "Indent <" })
+map("v", ">", ">gv", "Indent >", { })
+map("v", "<", "<gv", "Indent <", { })
 
 -- Misc => Translate
 -- local pantran = require('pantran')
@@ -43,16 +44,16 @@ map("v", "<", "<gv", { desc = "Indent <" })
 --map({ "x" }, "<leader>mt", pantran.motion_translate, { desc = "[T]ranslate", remap = true, expr = true })
 
 -- Split Windows
-map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
-map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
+map("n", "<leader>|", "<C-W>v", "Split window right",{ remap = true })
+map("n", "<leader>-", "<C-W>s", "Split window below",{ remap = true })
 
 -- Files
-map("n", "<leader>fn", "<cmd>tabnew|startinsert <cr>", { desc = "[F]ile [N]ew" })
-map("n", "<leader>fr", "<cmd>Neotree reveal<cr>", { desc = "[F]ile [R]eveal" })
+map("n", "<leader>fn", "<cmd>tabnew|startinsert <cr>", "[F]ile [N]ew", { })
+map("n", "<leader>fr", "<cmd>Neotree reveal<cr>", "[F]ile [R]eveal", { })
 
 -- treesitter mode
-map("n", "<leader>ut", "<cmd>lua vim.treesitter.start()<cr>", { desc = "[U]ser [t]reesitter enable" })
-map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T]reesitter disable" })
+map("n", "<leader>ut", "<cmd>lua vim.treesitter.start()<cr>","[U]ser [t]reesitter enable",  { })
+map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", "[U]ser [T]reesitter disable", { })
 
 ---- map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 ---- map('n', "<leader>sr", require("spectre").open, { desc = "[S]earch & Replace in files (Spectre)"})
@@ -67,7 +68,7 @@ map("n", "<leader>uT", "<cmd>lua vim.treesitter.stop()<cr>", { desc = "[U]ser [T
 --map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+map("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message",{ })
+map("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic message",{ })
+map("n", "<leader>e", vim.diagnostic.open_float, "Open floating diagnostic message",{ })
+map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list",{ })
