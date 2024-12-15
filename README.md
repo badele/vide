@@ -6,7 +6,7 @@ Welcome to my personalized Neovim configuration! This configuration is tailored
 primarily for DevOps tasks but can also be utilized by developers working with
 languages like Bash, Go, JSON, Python, Terraform, TypeScript, and more.
 
-I've aimed to streamline the installation process by creating a installation
+I've aimed to streamline the installation process by creating an installation
 script based on `flake.nix`
 
 scripts for your preferred distributions (you can even test it on Docker
@@ -140,7 +140,7 @@ lint/diagnostic, completion, action).
 | typescript | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (denols)                                               |
 | yaml       | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig(yamlls)                                                |
 
-### Partily supported
+### Partially supported
 
 | Language       | LSP | HL | FO | Lint | cmp | CA | Plugins                          |
 | -------------- | --- | -- | -- | ---- | --- | -- | -------------------------------- |
@@ -238,8 +238,8 @@ make try-nvim
 
 ## Installation
 
-**Warning**: That replace your current nvim configuration, your current
-configuration is backuped
+**Warning**: This replaces your current nvim configuration, your current
+configuration is backed up
 
 ```shell
 mv ~/.config/nvim ~/.config/nvim.bak-$(date +%s)
