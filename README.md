@@ -79,7 +79,10 @@ images).
     [neogit](https://github.com/NeogitOrg/neogit)
   - Indent guides
     [indent_blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-  - [Github Copilot](https://github.com/zbirenbaum/copilot.lua)
+  - AI
+    - [Github Copilot](https://github.com/zbirenbaum/copilot.lua)
+    - Neovim like using Cursor AI IDE
+      [Avante](https://github.com/yetone/avante.nvim)
   - LSP, diagnostic, linting
     - [lspconfig](https://github.com/neovim/nvim-lspconfig),
     - [mason](https://github.com/williamboman/mason.nvim),
@@ -161,16 +164,19 @@ lint/diagnostic, completion, action).
 
 Main keybinding with `<leader>` key :
 
-| Key   | Category  |
-| ----- | --------- |
-| **c** | Code      |
-| **f** | Find/File |
-| **g** | Goto      |
-| **m** | Misc      |
-| **s** | Search    |
-| **t** | Table     |
-| **u** | User      |
-| **!** | Terminal  |
+| Key   | Category           |
+| ----- | ------------------ |
+| **a** | Avante Cursor like |
+| **c** | Code               |
+| **f** | Find/File          |
+| **g** | Git                |
+| **l** | LSP                |
+| **m** | Misc               |
+| **s** | Search             |
+| **t** | Toogle             |
+| **u** | User               |
+| **x** | Diagnostic         |
+| **!** | Terminal           |
 
 ## Try
 
