@@ -76,6 +76,8 @@ if [ "$VIDE_LUA_SUPPORT" == "true" ]; then
 	header "Lua support"
 	checkTools "lua-format"
 	checkTools "luacheck"
+	checkTools "luarocks"
+	# checkTools "jsregexp"
 	checkTools "selene"
 	checkTools "stylua"
 fi
@@ -125,6 +127,9 @@ if [ "$VIDE_TEX_SUPPORT" == "true" ]; then
 	checkTools "latexindent"
 	checkTools "pplatex"
 	checkTools "texlab"
+	checkTools "biber"
+	checkTools "xdotool"
+	checkTools "pstree"
 fi
 
 if [ "$VIDE_TYPESCRIPT_SUPPORT" == "true" ]; then

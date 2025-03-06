@@ -24,12 +24,17 @@ return {
 	},
 	config = function()
 		local telescope = require("telescope")
+		local open_with_trouble = require("trouble.sources.telescope").open
 
 		telescope.setup({
 			defaults = {
 				file_ignore_patterns = { "node_modules" },
 				path_display = { "truncate " },
 				sorting_strategy = "ascending",
+				mappings = {
+					i = { ["<c-t>"] = open_with_trouble },
+					n = { ["<c-t>"] = open_with_trouble },
+				},
 			},
 			extensions = {
 				fzf = {

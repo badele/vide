@@ -40,8 +40,7 @@
               config.allowUnfree = true; # For terraform
             };
           });
-    in
-    {
+    in {
       devShells = forEachSupportedSystem ({ pkgs }:
         let
           ###########################################################################
@@ -78,12 +77,16 @@
               inherit (texlive)
                 scheme-medium tabularray ninecolors msg lipsum pgf;
             })
+            biber
             pplatex
+            pstree
             texlab
+            xdotool
             zathura
           ];
 
           lua_packages = with pkgs; [
+            lua51Packages.lua
             # LSP
             lua-language-server
 
@@ -92,6 +95,8 @@
             luaformatter
 
             luajitPackages.luacheck
+            luajitPackages.luarocks
+            luajitPackages.jsregexp
             selene
           ];
 
@@ -118,15 +123,8 @@
 
           python_packages = with pkgs; [
             ruff
-            (python3.withPackages (ps:
-              with ps; [
-                pycodestyle
-                pydocstyle
-                pylint
-                ruff-lsp
-                mypy
-                vulture
-              ]))
+            (python3.withPackages
+              (ps: with ps; [ pycodestyle pydocstyle pylint mypy vulture ]))
           ];
 
           scala_packages = with pkgs; [ sbt metals ];
@@ -136,8 +134,7 @@
           typescript_packages = with pkgs; [ deno ];
 
           yaml_packages = with pkgs; [ yaml-language-server ];
-        in
-        with pkgs;
+        in with pkgs;
         with lib; {
           default = pkgs.mkShell {
             shellHook = ''

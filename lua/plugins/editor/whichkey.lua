@@ -143,19 +143,22 @@ return {
 			}, {
 				"<leader>t",
 				group = "Toggle"
-			}, {
-				"<leader>tC",
-				"<Cmd>set conceallevel=3<cr>",
-				desc = "Enable conceal"
-			}, {
-				"<leader>tc",
-				"<Cmd>set conceallevel=0<cr>",
-				desc = "Disable conceal"
-			}, {
-				"<leader>tr",
-				"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>",
-				desc = "Disable search highlight"
-			}, {
+			},
+				-- 	{
+				-- 	"<leader>tC",
+				-- 	"<Cmd>set conceallevel=3<cr>",
+				-- 	desc = "Enable conceal"
+				-- },
+				-- 	{
+				-- 	"<leader>tc",
+				-- 	"<Cmd>set conceallevel=0<cr>",
+				-- 	desc = "Disable conceal"
+				-- },
+				{
+					"<leader>tr",
+					"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>",
+					desc = "Disable search highlight"
+				}, {
 				"<leader>u",
 				group = "User"
 			}, {
