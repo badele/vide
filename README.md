@@ -132,7 +132,7 @@ lint/diagnostic, completion, action).
 | markdown   | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (marksman), nvim-lint(markdownlint), conform(deno_fmt) |
 | nix        | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (nixd, nil_ls)                                         |
 | openscad   | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (openscad-lsp)                                         |
-| python     | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (ruff_lsp)                                             |
+| python     | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (ruff)                                                 |
 | scala      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (metals)                                               |
 | shell      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (bashls), conform(shellharden)                         |
 | terraform  | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig(terraform, terraform-ls                                |
