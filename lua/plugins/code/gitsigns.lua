@@ -7,7 +7,7 @@ return {
 		linehl             = true, -- Toggle with `:Gitsigns toggle_linehl`
 		numhl              = true, -- Toggle with `:Gitsigns toggle_numhl`
 		signcolumn         = true, -- Toggle with `:Gitsigns toggle_signs`
-		word_diff          = true, -- Toggle with `:Gitsigns toggle_word_diff`
+		word_diff          = false, -- Toggle with `:Gitsigns toggle_word_diff`
 	},
 	keys = {
 		{ "<leader>gd", '<cmd>lua require("gitsigns").diffthis()<cr>',  desc = "gitsigns diff", },

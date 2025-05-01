@@ -82,7 +82,7 @@ images).
   - AI
     - [Github Copilot](https://github.com/zbirenbaum/copilot.lua)
     - Neovim like using Cursor AI IDE
-      [Avante](https://github.com/yetone/avante.nvim)
+      [CodeCompanion](https://codecompanion.olimorris.dev/)
   - LSP, diagnostic, linting
     - [lspconfig](https://github.com/neovim/nvim-lspconfig),
     - [mason](https://github.com/williamboman/mason.nvim),
@@ -164,19 +164,19 @@ lint/diagnostic, completion, action).
 
 Main keybinding with `<leader>` key :
 
-| Key   | Category           |
-| ----- | ------------------ |
-| **a** | Avante Cursor like |
-| **c** | Code               |
-| **f** | Find/File          |
-| **g** | Git                |
-| **l** | LSP                |
-| **m** | Misc               |
-| **s** | Search             |
-| **t** | Toogle             |
-| **u** | User               |
-| **x** | Diagnostic         |
-| **!** | Terminal           |
+| Key   | Category                  |
+| ----- | ------------------------- |
+| **a** | CodeCompanion Cursor like |
+| **c** | Code                      |
+| **f** | Find/File                 |
+| **g** | Git                       |
+| **l** | LSP                       |
+| **m** | Misc                      |
+| **s** | Search                    |
+| **t** | Toogle                    |
+| **u** | User                      |
+| **x** | Diagnostic                |
+| **!** | Terminal                  |
 
 ## Try
 
