@@ -24,6 +24,50 @@ return {
         log_level = "INFO",
       },
       prompt_library = {
+        ["VIDE - create github issue"] = {
+          strategy = "chat",
+          description = "Create a github issue",
+          opts = {
+            index = 1,
+            modes = { "n", "v" },
+            short_name = "docstring",
+            auto_submit = true,
+            user_prompt = false,
+            placement = "new",
+            stop_context_insertion = true,
+          },
+          prompts = {
+            {
+              role = constants.SYSTEM_ROLE,
+              content = [[I will provide you with a text describing a technical problem or incident.
+
+Based on this text, generate a well-structured issue in English, containing the following sections:
+
+* **Description:** Summarize the problem clearly and concisely (2-3 sentences).
+
+* **Observed behavior:** List what works and what fails using ✅ and ❌ to indicate the observed behaviors.
+
+* **Potential causes we are considering:** List 2 or 3 potential technical hypotheses explaining the problem.
+
+* **Action plan:** Propose a structured action plan with 3 parts:
+
+  * Diagnostics & Testing
+  * Issue Identification
+  * Fix Implementation
+
+* **We are looking for input on:** Indicate any specific advice or feedback we would like from the community or colleagues.
+
+**Requirements:**
+
+* Write everything in English.
+* If some details are missing from the original text, make reasonable assumptions to fill in the sections.]]
+            },
+            {
+              role = constants.USER_ROLE,
+              content = "#buffer @editor, Create an github issue and edit my current buffer"
+            }
+          },
+        },
         ["VIDE - update docstring"] = {
           strategy = "chat",
           description = "Update docstring",
