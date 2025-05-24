@@ -1,18 +1,22 @@
 -- Lua plugin to turn github copilot into a cmp source
--- test copilot
 return {
 	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = { "zbirenbaum/copilot.lua" },
-		event = "InsertEnter",
+		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
-		build = ":Copilot auth",
+		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
 				suggestion = { enabled = true, auto_trigger = false },
 				panel = { enabled = true, auto_refresh = true },
-				auto_trigger = true,
 			})
+		end,
+	},
+
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = { "zbirenbaum/copilot.lua" },
+		after = { "copilot.lua" },
+		config = function()
 			require("copilot_cmp").setup()
 		end,
 	},
@@ -25,6 +29,6 @@ return {
 			require('copilot_status').setup({
 				debug = false,
 			})
-		end
-	}
+		end,
+	},
 }
