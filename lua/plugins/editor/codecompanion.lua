@@ -17,7 +17,7 @@ return {
       strategies = {
         chat = {
           adapter = "copilot",
-          model = "claude-3.7-sonnet",
+          model = "claude-4-sonnet",
         },
       },
       opts = {
