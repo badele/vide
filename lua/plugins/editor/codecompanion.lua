@@ -236,21 +236,21 @@ Use Markdown formatting and include the programming language name at the start o
   end,
   keys = {
     {
-      "<leader>aa",
+      "<leader>ac",
       "<cmd>CodeCompanionChat Toggle<cr>",
-      desc = "Toggle Chat",
+      desc = "Toggle CodeCompanion Chat",
       mode = { "n", "v" },
     },
     {
       "<leader>ao",
       "<cmd>CodeCompanionActions<cr>",
-      desc = "Options",
+      desc = "CodeCompanion Options",
       mode = { "n", "v" },
     },
     {
       "<leader>ai",
       "<cmd>CodeCompanion<cr>",
-      desc = "Inline",
+      desc = "CodeCompanion Inline",
       mode = { "n", "v" },
     },
 
