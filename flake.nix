@@ -172,6 +172,7 @@
                 cmake
                 curl
                 git
+                git-crypt
                 ncurses
                 neovim
                 nodejs
