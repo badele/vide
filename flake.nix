@@ -114,7 +114,7 @@
             deadnix
             nixd
             nil
-            nixfmt
+            nixfmt-rfc-style
             nixpkgs-fmt
             statix
           ];
