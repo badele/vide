@@ -83,6 +83,7 @@ images).
     - [Github Copilot](https://github.com/zbirenbaum/copilot.lua)
     - Neovim like using Cursor AI IDE
       [CodeCompanion](https://codecompanion.olimorris.dev/)
+    - [Claude Code](https://github.com/greggh/claude-code.nvim)
   - LSP, diagnostic, linting
     - [lspconfig](https://github.com/neovim/nvim-lspconfig),
     - [mason](https://github.com/williamboman/mason.nvim),
@@ -265,7 +266,6 @@ try-nvim       Try nvim without update your current nvim configuration
 
 - **vide**
   - [ ] Define `lazy` & `event` option for all plugins
-  - [ ] Add markdown preview keybinding on `<leader>mm` or `<leader>mp`
 - search plugins for :
   - [ ] todo or org alternative
   - [ ] [vim-sops](https://github.com/jsecchiero/vim-sops/tree/main)
