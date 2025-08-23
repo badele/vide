@@ -1,7 +1,6 @@
 -- Nvim Treesitter configurations and abstraction layer
 return {
 	"nvim-treesitter/nvim-treesitter",
-	dependencies = { "OXY2DEV/markview.nvim" },
 	event = { "BufReadPost", "BufNewFile" },
 	build = ":TSUpdate",
 	opts = {
