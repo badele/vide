@@ -20,7 +20,7 @@ return {
 			eol = "gcA",
 		},
 		mappings = {
-			basic = true,
+			basic = false,
 			extra = false,
 		},
 		pre_hook = nil,

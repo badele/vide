@@ -17,6 +17,13 @@ return {
 				patterns = { ".git", "Makefile" },
 			},
 			config = function(_, opts)
+				-- Shim deprecated API used by project.nvim until upstream updates
+				if vim.lsp and vim.lsp.get_clients then
+					vim.lsp.buf_get_clients = function(...)
+						return vim.lsp.get_clients(...)
+					end
+				end
+
 				require("project_nvim").setup(opts)
 				require("telescope").load_extension("projects")
 			end,

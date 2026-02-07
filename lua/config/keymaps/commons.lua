@@ -72,3 +72,9 @@ map("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message",{ }
 map("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic message",{ })
 map("n", "<leader>e", vim.diagnostic.open_float, "Open floating diagnostic message",{ })
 map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list",{ })
+
+-- Remove built-in comment defaults (gc/gcc) to avoid overlaps with plugins/which-key noise
+pcall(vim.keymap.del, 'n', 'gc')
+pcall(vim.keymap.del, 'x', 'gc')
+pcall(vim.keymap.del, 'o', 'gc')
+pcall(vim.keymap.del, 'n', 'gcc')
