@@ -69,7 +69,6 @@ fi
 if [ "$VIDE_JSON_SUPPORT" == "true" ]; then
 	header "JSON support"
 	checkTools "fixjson"
-	checkTools "jsonlint"
 fi
 
 if [ "$VIDE_LUA_SUPPORT" == "true" ]; then
@@ -114,6 +113,13 @@ if [ "$VIDE_PYTHON_SUPPORT" == "true" ]; then
 	checkTools "python3"
 	checkTools "ruff"
 	checkTools "vulture"
+fi
+
+if [ "$VIDE_RUST_SUPPORT" == "true" ]; then
+	header "Rust support"
+	checkTools "rust-analyzer"
+	checkTools "rustfmt"
+	checkTools "clippy-driver" "clippy"
 fi
 
 if [ "$VIDE_TERRAFORM_SUPPORT" == "true" ]; then

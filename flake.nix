@@ -26,6 +26,7 @@
       nix_support = true;
       openscad_support = true;
       python_support = true;
+      rust_support = true;
       scala_support = true;
       terraform_support = true;
       typescript_support = true;
@@ -68,14 +69,13 @@
 
           deno_packages = with pkgs; [ deno ];
 
-          dockerfile_packages = with pkgs; [ nodePackages.dockerfile-language-server-nodejs ];
+          dockerfile_packages = with pkgs; [ dockerfile-language-server ];
 
           javascript_packages = with pkgs; [ nodePackages.eslint ];
 
           json_packages = with pkgs; [
             vscode-langservers-extracted
             nodePackages.fixjson
-            nodePackages.jsonlint
           ];
 
           ledger_packages = with pkgs; [
@@ -123,7 +123,7 @@
           markdown_packages = with pkgs; [
             marksman
             nodePackages.markdownlint-cli
-            python311Packages.mdformat
+            python313Packages.mdformat
           ];
 
           nix_packages = with pkgs; [
@@ -132,7 +132,7 @@
             deadnix
             nixd
             nil
-            nixfmt-rfc-style
+            nixfmt
             nixpkgs-fmt
             statix
           ];
@@ -154,6 +154,12 @@
                 vulture
               ]
             ))
+          ];
+
+          rust_packages = with pkgs; [
+            rust-analyzer
+            rustfmt
+            clippy
           ];
 
           scala_packages = with pkgs; [
@@ -190,6 +196,7 @@
               export VIDE_NIX_SUPPORT=${boolToString nix_support}
               export VIDE_PYTHON_SUPPORT=${boolToString python_support}
               export VIDE_OPENSCAD_SUPPORT=${boolToString openscad_support}
+              export VIDE_RUST_SUPPORT=${boolToString rust_support}
               export VIDE_SCALA_SUPPORT=${boolToString scala_support}
               export VIDE_TERRAFORM_SUPPORT=${boolToString terraform_support}
               export VIDE_TYPESCRIPT_SUPPORT=${boolToString typescript_support}
@@ -223,11 +230,11 @@
                 tree-sitter
                 xclip
 
-                claude-code
-
                 # Misc language
                 # efm-langserver
                 nodePackages.prettier
+
+                just
               ]
               ++ optionals ansible_support ansible_packages
               ++ optionals bash_support bash_packages
@@ -244,6 +251,7 @@
               ++ optionals nix_support nix_packages
               ++ optionals openscad_support openscad_packages
               ++ optionals python_support python_packages
+              ++ optionals rust_support rust_packages
               ++ optionals scala_support scala_packages
               ++ optionals terraform_support terraform_packages
               ++ optionals typescript_support typescript_packages
