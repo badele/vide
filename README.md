@@ -4,7 +4,7 @@
 
 Welcome to my personalized Neovim configuration! This configuration is tailored
 primarily for DevOps tasks but can also be utilized by developers working with
-languages like Bash, Go, JSON, Python, Terraform, TypeScript, and more.
+languages like Bash, Go, JSON, Python, Rust, Terraform, TypeScript, and more.
 
 I've aimed to streamline the installation process by creating an installation
 script based on `flake.nix`
@@ -42,8 +42,8 @@ images).
   enhancing your efficiency in tasks related to infrastructure, automation, and
   more.
 - **Developer-Friendly:** Even if you're a developer working with various
-  programming languages such as Bash, Deno, Go, JSON, Nix, Python, Terraform,
-  TypeScript, etc., this configuration has you covered.
+  programming languages such as Bash, Deno, Go, JSON, Nix, Python, Rust,
+  Terraform, TypeScript, etc., this configuration has you covered.
 
 ## Plugins
 
@@ -134,6 +134,7 @@ lint/diagnostic, completion, action).
 | nix        | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (nixd, nil_ls)                                         |
 | openscad   | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (openscad-lsp)                                         |
 | python     | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (ruff)                                                 |
+| rust       | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (rust_analyzer), conform(rustfmt)                      |
 | scala      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (metals)                                               |
 | shell      | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig (bashls), conform(shellharden)                         |
 | terraform  | ✅  | ✅ | ✅ | ✅   | ✅  | ✅ | lspconfig(terraform, terraform-ls                                |
