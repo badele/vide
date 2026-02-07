@@ -1,4 +1,4 @@
--- Lua plugin to turn github copilot into a cmp source
+-- GitHub Copilot core integration (used by Blink source)
 return {
 	{
 		"zbirenbaum/copilot.lua",
@@ -6,18 +6,14 @@ return {
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
-				suggestion = { enabled = true, auto_trigger = false },
-				panel = { enabled = true, auto_refresh = true },
+				server_opts_overrides = {
+					capabilities = {
+						offsetEncoding = { "utf-8" },
+					},
+				},
+				suggestion = { enabled = false },
+				panel = { enabled = false },
 			})
-		end,
-	},
-
-	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = { "zbirenbaum/copilot.lua" },
-		after = { "copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup()
 		end,
 	},
 

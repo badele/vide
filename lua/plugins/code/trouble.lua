@@ -1,19 +1,19 @@
 -- A pretty diagnostics, references, telescope results, quickfix and location list
 return {
 	"folke/trouble.nvim",
-	cmd = { "TroubleToggle", "Trouble" },
+	cmd = { "Trouble" },
 	opts = { use_diagnostic_signs = true },
 	keys = {
-		{ "<leader>cd", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document diagnostics" },
-		{ "<leader>cD", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
-		{ "<leader>cH", "<cmd>lua vim.diagnostic.open_float()<cr>",     desc = "Hint Diagnostics" },
-		{ "<leader>cl", "<cmd>TroubleToggle loclist<cr>",               desc = "Location List" },
-		{ "<leader>cq", "<cmd>TroubleToggle quickfix<cr>",              desc = "Quickfix List" },
+		{ "<leader>cd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Document diagnostics" },
+		{ "<leader>cD", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Workspace Diagnostics" },
+		{ "<leader>cH", "<cmd>lua vim.diagnostic.open_float()<cr>",         desc = "Hint Diagnostics" },
+		{ "<leader>cl", "<cmd>Trouble loclist toggle<cr>",                  desc = "Location List" },
+		{ "<leader>cq", "<cmd>Trouble qflist toggle<cr>",                   desc = "Quickfix List" },
 
-		{ "<leader>cn", "<cmd>lua vim.diagnostic.goto_next()",          desc = "Goto next diagnostic" },
-		{ "<leader>cp", "<cmd>lua vim.diagnostic.goto_prev()",          desc = "Goto prev diagnostic" },
+		{ "<leader>cn", "<cmd>lua vim.diagnostic.jump({count=1,float=false})<cr>",  desc = "Goto next diagnostic" },
+		{ "<leader>cp", "<cmd>lua vim.diagnostic.jump({count=-1,float=false})<cr>", desc = "Goto prev diagnostic" },
 
-		{ "gn",         "<cmd>lua vim.diagnostic.goto_next()<cr>",      desc = "Goto next diagnostic" },
-		{ "gp",         "<cmd>lua vim.diagnostic.goto_prev()<cr>",      desc = "Goto prev diagnostic" },
+		{ "gn",         "<cmd>lua vim.diagnostic.jump({count=1,float=false})<cr>",  desc = "Goto next diagnostic" },
+		{ "gp",         "<cmd>lua vim.diagnostic.jump({count=-1,float=false})<cr>", desc = "Goto prev diagnostic" },
 	},
 }

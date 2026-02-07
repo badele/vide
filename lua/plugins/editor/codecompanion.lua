@@ -21,7 +21,7 @@ return {
         },
       },
       opts = {
-        log_level = "INFO",
+        log_level = "WARN",
       },
       prompt_library = {
         ["VIDE - create github issue"] = {

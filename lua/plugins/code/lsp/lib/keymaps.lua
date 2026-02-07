@@ -32,10 +32,14 @@ return function(_, bufnr)
 	map("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 	opts.desc = "LSP next diagnostic"
-	map("n", "<leader>ln", vim.diagnostic.goto_next, opts)
+	map("n", "<leader>ln", function()
+		vim.diagnostic.jump({ count = 1, float = false })
+	end, opts)
 
 	opts.desc = "LSP previous diagnostic"
-	map("n", "<leader>lp", vim.diagnostic.goto_prev, opts)
+	map("n", "<leader>lp", function()
+		vim.diagnostic.jump({ count = -1, float = false })
+	end, opts)
 
 	opts.desc = "LSP show documentation for what is under cursor"
 	map("n", "<leader>ch", vim.lsp.buf.hover, opts)
