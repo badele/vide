@@ -81,9 +81,6 @@ images).
     [indent_blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
   - AI
     - [Github Copilot](https://github.com/zbirenbaum/copilot.lua)
-    - Neovim like using Cursor AI IDE
-      [CodeCompanion](https://codecompanion.olimorris.dev/)
-    - [Claude Code](https://github.com/greggh/claude-code.nvim)
   - LSP, diagnostic, linting
     - [lspconfig](https://github.com/neovim/nvim-lspconfig),
     - [mason](https://github.com/williamboman/mason.nvim),
@@ -168,7 +165,6 @@ Main keybinding with `<leader>` key :
 
 | Key   | Category                  |
 | ----- | ------------------------- |
-| **a** | CodeCompanion Cursor like |
 | **c** | Code                      |
 | **f** | Find/File                 |
 | **g** | Git                       |
